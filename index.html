@@ -1378,26 +1378,62 @@ function initQuiz() {
 
   // Start quiz polling
   pollStatus();
-  S.pollTimer = setInterval(pollStatus, 4000);
+  S.pollTimer = setInterval(pollStatus, 2000);
 }
 
-    function updateQuizUI(data) {
-      hideEl('quiz-not-registered');
-      if (data.gameOver) { showEl('quiz-done'); hideEl('quiz-active'); hideEl('quiz-waiting'); return; }
-      if (!data.gameActive) { showEl('quiz-waiting'); hideEl('quiz-active'); hideEl('quiz-done'); return; }
-      showEl('quiz-active'); hideEl('quiz-waiting'); hideEl('quiz-done');
-      document.getElementById('q-badge').textContent = 'QUESTION ' + data.currentQuestion + ' OF ' + data.totalQuestions;
-      document.getElementById('q-text').textContent = data.questionText;
-      document.getElementById('q-status-label').textContent = '🟢 LIVE';
-      if (S.currentQ !== data.currentQuestion) { S.answered = false; S.currentQ = data.currentQuestion; }
-      if (S.answered) { hideEl('answer-area'); showEl('answer-submitted'); }
-      else {
-        showEl('answer-area'); hideEl('answer-submitted');
-        document.getElementById('answer-input').value = '';
-        var btn = document.getElementById('submit-btn');
-        btn.innerHTML = '⚡ SUBMIT ANSWER'; btn.disabled = false;
-      }
-    }
+function updateQuizUI(data) {
+  hideEl('quiz-not-registered');
+
+  if (data.gameOver) { 
+    showEl('quiz-done'); 
+    hideEl('quiz-active'); 
+    hideEl('quiz-waiting'); 
+    return; 
+  }
+
+  if (!data.gameActive) { 
+    showEl('quiz-waiting'); 
+    hideEl('quiz-active'); 
+    hideEl('quiz-done'); 
+    return; 
+  }
+
+  showEl('quiz-active'); 
+  hideEl('quiz-waiting'); 
+  hideEl('quiz-done');
+
+  document.getElementById('q-status-label').textContent = '🟢 LIVE';
+
+  // When question changes
+  if (S.currentQ !== data.currentQuestion) {
+
+    S.currentQ = data.currentQuestion;
+    S.answered = false;
+
+    document.getElementById('q-badge').textContent =
+      'QUESTION ' + data.currentQuestion + ' OF ' + data.totalQuestions;
+
+    document.getElementById('q-text').textContent = data.questionText;
+
+    document.getElementById('answer-input').value = '';
+  }
+
+  if (S.answered) { 
+    hideEl('answer-area'); 
+    showEl('answer-submitted'); 
+  }
+
+  else {
+    showEl('answer-area'); 
+    hideEl('answer-submitted');
+
+    var btn = document.getElementById('submit-btn');
+    btn.innerHTML = '⚡ SUBMIT ANSWER';
+    btn.disabled = false;
+  }
+}
+
+
 
     async function handleSubmitAnswer() {
       var ans = document.getElementById('answer-input').value.trim();
