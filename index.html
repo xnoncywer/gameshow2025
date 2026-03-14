@@ -25,7 +25,7 @@
     * {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      box-sizing: border-box
     }
 
     body {
@@ -33,7 +33,7 @@
       background: var(--darker);
       color: var(--text);
       min-height: 100vh;
-      overflow-x: hidden;
+      overflow-x: hidden
     }
 
     body::before {
@@ -42,7 +42,7 @@
       inset: 0;
       background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.07) 2px, rgba(0, 0, 0, 0.07) 4px);
       pointer-events: none;
-      z-index: 9999;
+      z-index: 9999
     }
 
     .bg-grid {
@@ -52,7 +52,7 @@
       background-size: 50px 50px;
       pointer-events: none;
       z-index: 0;
-      animation: gridShift 20s linear infinite;
+      animation: gridShift 20s linear infinite
     }
 
     @keyframes gridShift {
@@ -75,10 +75,10 @@
       justify-content: space-between;
       padding: 0 2rem;
       height: 64px;
-      background: rgba(5, 5, 8, 0.92);
+      background: rgba(5, 5, 8, 0.95);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
-      z-index: 1000;
+      z-index: 1000
     }
 
     .nav-logo {
@@ -87,12 +87,12 @@
       letter-spacing: 3px;
       background: linear-gradient(90deg, var(--gold), var(--orange));
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-text-fill-color: transparent
     }
 
     .nav-tabs {
       display: flex;
-      gap: 4px;
+      gap: 4px
     }
 
     .nav-tab {
@@ -106,18 +106,18 @@
       border: 1px solid transparent;
       border-radius: 4px;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.2s
     }
 
     .nav-tab:hover {
       color: var(--gold);
-      border-color: var(--border);
+      border-color: var(--border)
     }
 
     .nav-tab.active {
       color: var(--dark);
       background: var(--gold);
-      border-color: var(--gold);
+      border-color: var(--gold)
     }
 
     .nav-status {
@@ -126,16 +126,14 @@
       gap: 8px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.7rem;
-      color: var(--muted);
+      color: var(--muted)
     }
 
     .status-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #22C55E;
-      box-shadow: 0 0 8px #22C55E;
-      animation: pulse 2s infinite;
+      animation: pulse 2s infinite
     }
 
     @keyframes pulse {
@@ -155,12 +153,12 @@
       min-height: 100vh;
       padding-top: 80px;
       position: relative;
-      z-index: 1;
+      z-index: 1
     }
 
     .page.active {
       display: block;
-      animation: fadeIn 0.3s ease;
+      animation: fadeIn 0.3s ease
     }
 
     @keyframes fadeIn {
@@ -175,14 +173,13 @@
       }
     }
 
-    /* CARDS & FORMS */
     .card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 2rem;
       position: relative;
-      overflow: hidden;
+      overflow: hidden
     }
 
     .card::before {
@@ -192,12 +189,12 @@
       left: 0;
       right: 0;
       height: 2px;
-      background: linear-gradient(90deg, var(--gold), var(--orange), var(--pink));
+      background: linear-gradient(90deg, var(--gold), var(--orange), var(--pink))
     }
 
     .form-group {
       margin-bottom: 1.2rem;
-      text-align: left;
+      text-align: left
     }
 
     .form-label {
@@ -207,7 +204,7 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 6px;
+      margin-bottom: 6px
     }
 
     .form-input {
@@ -220,17 +217,17 @@
       font-family: 'Syne', sans-serif;
       font-size: 1rem;
       transition: all 0.2s;
-      outline: none;
+      outline: none
     }
 
     .form-input:focus {
       border-color: var(--gold);
       background: rgba(255, 215, 0, 0.05);
-      box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.08);
+      box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.08)
     }
 
     .form-input::placeholder {
-      color: var(--muted);
+      color: var(--muted)
     }
 
     .btn {
@@ -245,81 +242,80 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.2s
     }
 
     .btn:disabled {
       opacity: 0.5;
       cursor: not-allowed;
-      transform: none !important;
+      transform: none !important
     }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--gold), var(--orange));
       color: var(--dark);
-      box-shadow: 0 4px 24px rgba(255, 215, 0, 0.3);
+      box-shadow: 0 4px 24px rgba(255, 215, 0, 0.3)
     }
 
     .btn-primary:hover:not(:disabled) {
       transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(255, 215, 0, 0.45);
+      box-shadow: 0 8px 32px rgba(255, 215, 0, 0.45)
     }
 
     .btn-outline {
       background: transparent;
       color: var(--gold);
-      border: 1px solid var(--gold);
+      border: 1px solid var(--gold)
     }
 
     .btn-outline:hover:not(:disabled) {
-      background: rgba(255, 215, 0, 0.08);
+      background: rgba(255, 215, 0, 0.08)
     }
 
     .btn-danger {
       background: linear-gradient(135deg, var(--pink), #C0143C);
       color: white;
-      box-shadow: 0 4px 20px rgba(255, 45, 107, 0.3);
+      box-shadow: 0 4px 20px rgba(255, 45, 107, 0.3)
     }
 
     .btn-danger:hover:not(:disabled) {
-      transform: translateY(-2px);
+      transform: translateY(-2px)
     }
 
     .btn-cyan {
       background: linear-gradient(135deg, var(--cyan), #0099CC);
       color: var(--dark);
-      box-shadow: 0 4px 20px rgba(0, 245, 255, 0.25);
+      box-shadow: 0 4px 20px rgba(0, 245, 255, 0.25)
     }
 
     .btn-cyan:hover:not(:disabled) {
-      transform: translateY(-2px);
+      transform: translateY(-2px)
     }
 
     .btn-green {
       background: linear-gradient(135deg, #22C55E, #16A34A);
       color: white;
-      box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
+      box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3)
     }
 
     .btn-green:hover:not(:disabled) {
-      transform: translateY(-2px);
+      transform: translateY(-2px)
     }
 
     .btn-full {
-      width: 100%;
+      width: 100%
     }
 
     .btn-sm {
       padding: 8px 18px;
-      font-size: 0.85rem;
+      font-size: 0.85rem
     }
 
-    /* HERO */
     .hero {
       max-width: 600px;
       margin: 0 auto;
       padding: 3rem 2rem 2rem;
-      text-align: center;
+      text-align: center
     }
 
     .hero-eyebrow {
@@ -328,7 +324,7 @@
       letter-spacing: 4px;
       color: var(--orange);
       text-transform: uppercase;
-      margin-bottom: 1rem;
+      margin-bottom: 1rem
     }
 
     .hero-title {
@@ -336,12 +332,12 @@
       font-size: clamp(4rem, 12vw, 7rem);
       line-height: 0.9;
       letter-spacing: 4px;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.5rem
     }
 
     .hero-title .line1 {
       display: block;
-      color: var(--text);
+      color: var(--text)
     }
 
     .hero-title .line2 {
@@ -350,7 +346,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: shimmer 3s ease-in-out infinite;
-      background-size: 200%;
+      background-size: 200%
     }
 
     @keyframes shimmer {
@@ -369,21 +365,20 @@
       color: var(--muted);
       font-size: 0.9rem;
       margin-bottom: 3rem;
-      line-height: 1.6;
+      line-height: 1.6
     }
 
-    /* QUIZ */
     .quiz-container {
       max-width: 700px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 2rem
     }
 
     .quiz-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 2rem;
+      margin-bottom: 2rem
     }
 
     .q-badge {
@@ -394,7 +389,7 @@
       background: rgba(255, 215, 0, 0.1);
       border: 1px solid rgba(255, 215, 0, 0.3);
       padding: 6px 16px;
-      border-radius: 4px;
+      border-radius: 4px
     }
 
     .q-text {
@@ -403,7 +398,7 @@
       line-height: 1.1;
       margin-bottom: 2rem;
       color: var(--text);
-      letter-spacing: 1px;
+      letter-spacing: 1px
     }
 
     .answer-input {
@@ -417,40 +412,40 @@
       color: var(--text);
       outline: none;
       transition: all 0.2s;
-      margin-bottom: 1rem;
+      margin-bottom: 1rem
     }
 
     .answer-input:focus {
       border-color: var(--cyan);
-      box-shadow: 0 0 0 3px rgba(0, 245, 255, 0.1);
+      box-shadow: 0 0 0 3px rgba(0, 245, 255, 0.1)
     }
 
     .answer-input::placeholder {
-      color: var(--muted);
+      color: var(--muted)
     }
 
     .result-icon {
       font-size: 4rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1rem
     }
 
     .result-title {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 3rem;
-      letter-spacing: 3px;
+      letter-spacing: 3px
     }
 
     .result-title.correct {
       color: #22C55E;
-      text-shadow: 0 0 30px rgba(34, 197, 94, 0.5);
+      text-shadow: 0 0 30px rgba(34, 197, 94, 0.5)
     }
 
     .result-title.wrong {
-      color: var(--pink);
+      color: var(--pink)
     }
 
     .result-title.waiting {
-      color: var(--gold);
+      color: var(--gold)
     }
 
     .pulse-ring {
@@ -459,7 +454,7 @@
       border-radius: 50%;
       border: 3px solid var(--gold);
       margin: 0 auto 2rem;
-      animation: ring 1.5s ease-in-out infinite;
+      animation: ring 1.5s ease-in-out infinite
     }
 
     @keyframes ring {
@@ -474,11 +469,10 @@
       }
     }
 
-    /* LEADERBOARD */
     .lb-container {
       max-width: 900px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 2rem
     }
 
     .lb-title {
@@ -487,7 +481,7 @@
       letter-spacing: 6px;
       background: linear-gradient(135deg, var(--gold), var(--orange));
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-text-fill-color: transparent
     }
 
     .lb-sub {
@@ -497,7 +491,7 @@
       color: var(--muted);
       text-transform: uppercase;
       margin-top: 4px;
-      margin-bottom: 2rem;
+      margin-bottom: 2rem
     }
 
     .lb-row {
@@ -513,12 +507,12 @@
       transition: all 0.3s;
       position: relative;
       overflow: hidden;
-      animation: slideIn 0.4s ease both;
+      animation: slideIn 0.4s ease both
     }
 
     .lb-row:hover {
       border-color: rgba(255, 215, 0, 0.3);
-      transform: translateX(4px);
+      transform: translateX(4px)
     }
 
     @keyframes slideIn {
@@ -535,17 +529,17 @@
 
     .lb-row.rank-1 {
       border-color: rgba(255, 215, 0, 0.5);
-      background: rgba(255, 215, 0, 0.05);
+      background: rgba(255, 215, 0, 0.05)
     }
 
     .lb-row.rank-2 {
       border-color: rgba(192, 192, 192, 0.4);
-      background: rgba(192, 192, 192, 0.03);
+      background: rgba(192, 192, 192, 0.03)
     }
 
     .lb-row.rank-3 {
       border-color: rgba(205, 127, 50, 0.4);
-      background: rgba(205, 127, 50, 0.03);
+      background: rgba(205, 127, 50, 0.03)
     }
 
     .lb-row.rank-1::before,
@@ -556,50 +550,50 @@
       left: 0;
       top: 0;
       bottom: 0;
-      width: 3px;
+      width: 3px
     }
 
     .lb-row.rank-1::before {
-      background: var(--gold);
+      background: var(--gold)
     }
 
     .lb-row.rank-2::before {
-      background: #C0C0C0;
+      background: #C0C0C0
     }
 
     .lb-row.rank-3::before {
-      background: #CD7F32;
+      background: #CD7F32
     }
 
     .lb-rank {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.8rem;
       letter-spacing: 2px;
-      text-align: center;
+      text-align: center
     }
 
     .lb-rank.r1 {
       color: var(--gold);
-      text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.6)
     }
 
     .lb-rank.r2 {
-      color: #C0C0C0;
+      color: #C0C0C0
     }
 
     .lb-rank.r3 {
-      color: #CD7F32;
+      color: #CD7F32
     }
 
     .lb-rank.rn {
       color: var(--muted);
-      font-size: 1.2rem;
+      font-size: 1.2rem
     }
 
     .lb-name {
       font-size: 1.1rem;
       font-weight: 700;
-      color: var(--text);
+      color: var(--text)
     }
 
     .lb-name small {
@@ -608,7 +602,7 @@
       font-size: 0.65rem;
       color: var(--muted);
       letter-spacing: 1px;
-      margin-top: 2px;
+      margin-top: 2px
     }
 
     .lb-score {
@@ -616,7 +610,7 @@
       font-size: 2rem;
       letter-spacing: 2px;
       color: var(--cyan);
-      text-shadow: 0 0 15px rgba(0, 245, 255, 0.4);
+      text-shadow: 0 0 15px rgba(0, 245, 255, 0.4)
     }
 
     .lb-score small {
@@ -625,7 +619,7 @@
       font-size: 0.6rem;
       color: var(--muted);
       letter-spacing: 1px;
-      text-align: right;
+      text-align: right
     }
 
     .lb-bar-bg {
@@ -634,29 +628,28 @@
       background: rgba(255, 255, 255, 0.05);
       border-radius: 2px;
       overflow: hidden;
-      margin-top: 4px;
+      margin-top: 4px
     }
 
     .lb-bar {
       height: 100%;
       background: linear-gradient(90deg, var(--gold), var(--orange));
       border-radius: 2px;
-      transition: width 1s ease;
+      transition: width 1s ease
     }
 
     .lb-row.rank-2 .lb-bar {
-      background: linear-gradient(90deg, #C0C0C0, #A0A0A0);
+      background: linear-gradient(90deg, #C0C0C0, #A0A0A0)
     }
 
     .lb-row.rank-3 .lb-bar {
-      background: linear-gradient(90deg, #CD7F32, #A0642A);
+      background: linear-gradient(90deg, #CD7F32, #A0642A)
     }
 
-    /* ADMIN */
     .admin-container {
       max-width: 960px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 2rem
     }
 
     .admin-header {
@@ -667,7 +660,7 @@
       padding-bottom: 1rem;
       border-bottom: 1px solid var(--border);
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1rem
     }
 
     .admin-title {
@@ -675,14 +668,14 @@
       font-size: 2rem;
       letter-spacing: 4px;
       color: var(--pink);
-      text-shadow: 0 0 20px rgba(255, 45, 107, 0.4);
+      text-shadow: 0 0 20px rgba(255, 45, 107, 0.4)
     }
 
     .admin-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 1rem;
-      margin-bottom: 2rem;
+      margin-bottom: 2rem
     }
 
     .stat-card {
@@ -690,7 +683,7 @@
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 1.5rem;
-      text-align: center;
+      text-align: center
     }
 
     .stat-value {
@@ -698,7 +691,7 @@
       font-size: 3rem;
       letter-spacing: 3px;
       line-height: 1;
-      margin-bottom: 4px;
+      margin-bottom: 4px
     }
 
     .stat-label {
@@ -706,7 +699,7 @@
       font-size: 0.65rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--muted)
     }
 
     .section-title {
@@ -718,36 +711,29 @@
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 12px
     }
 
     .section-title::after {
       content: '';
       flex: 1;
       height: 1px;
-      background: var(--border);
+      background: var(--border)
     }
 
-    /* QUESTION CONTROL BOX */
     .q-control-box {
       background: var(--card);
       border: 2px solid rgba(255, 215, 0, 0.3);
       border-radius: 12px;
       padding: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .q-control-box::before {
-      content: '';
-      position: absolute;
-      display: none;
+      margin-bottom: 2rem
     }
 
     .q-control-inner {
       display: flex;
       align-items: center;
       gap: 1.5rem;
-      flex-wrap: wrap;
+      flex-wrap: wrap
     }
 
     .q-big-num {
@@ -758,11 +744,11 @@
       letter-spacing: 2px;
       text-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
       min-width: 80px;
-      text-align: center;
+      text-align: center
     }
 
     .q-control-info {
-      flex: 1;
+      flex: 1
     }
 
     .q-control-label {
@@ -771,7 +757,7 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 6px;
+      margin-bottom: 6px
     }
 
     .q-control-text {
@@ -779,7 +765,7 @@
       font-size: 1.1rem;
       font-weight: 700;
       color: var(--text);
-      line-height: 1.3;
+      line-height: 1.3
     }
 
     .q-control-buttons {
@@ -787,13 +773,13 @@
       gap: 10px;
       flex-wrap: wrap;
       margin-top: 1rem;
-      align-items: center;
+      align-items: center
     }
 
     .q-list {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 8px
     }
 
     .q-item {
@@ -805,21 +791,20 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.2s
     }
 
     .q-item:hover {
-      border-color: rgba(255, 215, 0, 0.3);
+      border-color: rgba(255, 215, 0, 0.3)
     }
 
     .q-item.is-active {
       border-color: var(--gold);
-      background: rgba(255, 215, 0, 0.05);
+      background: rgba(255, 215, 0, 0.05)
     }
 
     .q-item.is-closed {
-      opacity: 0.5;
+      opacity: 0.5
     }
 
     .q-item-num {
@@ -828,15 +813,15 @@
       letter-spacing: 2px;
       min-width: 32px;
       text-align: center;
-      color: var(--muted);
+      color: var(--muted)
     }
 
     .q-item.is-active .q-item-num {
-      color: var(--gold);
+      color: var(--gold)
     }
 
     .q-item-text {
-      flex: 1;
+      flex: 1
     }
 
     .q-item-status {
@@ -846,25 +831,25 @@
       padding: 3px 8px;
       border-radius: 3px;
       text-transform: uppercase;
-      white-space: nowrap;
+      white-space: nowrap
     }
 
     .s-active {
       background: rgba(255, 215, 0, 0.15);
       color: var(--gold);
-      border: 1px solid rgba(255, 215, 0, 0.3);
+      border: 1px solid rgba(255, 215, 0, 0.3)
     }
 
     .s-closed {
       background: rgba(255, 45, 107, 0.1);
       color: var(--pink);
-      border: 1px solid rgba(255, 45, 107, 0.2);
+      border: 1px solid rgba(255, 45, 107, 0.2)
     }
 
     .s-upcoming {
       background: rgba(255, 255, 255, 0.05);
       color: var(--muted);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1)
     }
 
     .q-item-jump {
@@ -877,25 +862,24 @@
       background: transparent;
       cursor: pointer;
       transition: all 0.2s;
-      white-space: nowrap;
+      white-space: nowrap
     }
 
     .q-item-jump:hover {
-      background: rgba(255, 215, 0, 0.1);
+      background: rgba(255, 215, 0, 0.1)
     }
 
-    /* GATE */
     .gate {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
+      padding: 2rem
     }
 
     .gate-card {
       width: 100%;
-      max-width: 400px;
+      max-width: 400px
     }
 
     .gate-title {
@@ -904,10 +888,9 @@
       letter-spacing: 4px;
       text-align: center;
       margin-bottom: 2rem;
-      color: var(--pink);
+      color: var(--pink)
     }
 
-    /* TOAST */
     .toast {
       position: fixed;
       bottom: 2rem;
@@ -923,25 +906,24 @@
       opacity: 0;
       transition: all 0.3s;
       z-index: 9998;
-      max-width: 320px;
+      max-width: 320px
     }
 
     .toast.show {
       transform: translateY(0);
-      opacity: 1;
+      opacity: 1
     }
 
-    /* POINTS TABLE */
     .points-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.85rem;
+      font-size: 0.85rem
     }
 
     .points-table td {
       padding: 10px 12px;
       border-bottom: 1px solid var(--border);
-      vertical-align: middle;
+      vertical-align: middle
     }
 
     .points-table td:last-child {
@@ -949,51 +931,50 @@
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.2rem;
       letter-spacing: 2px;
-      color: var(--gold);
+      color: var(--gold)
     }
 
     .points-table tr:last-child td {
-      border-bottom: none;
+      border-bottom: none
     }
 
-    /* MISC */
     .divider {
       height: 1px;
       background: var(--border);
-      margin: 1.5rem 0;
+      margin: 1.5rem 0
     }
 
     .text-center {
-      text-align: center;
+      text-align: center
     }
 
     .mt-1 {
-      margin-top: 0.5rem;
+      margin-top: 0.5rem
     }
 
     .mt-2 {
-      margin-top: 1rem;
+      margin-top: 1rem
     }
 
     .mt-3 {
-      margin-top: 1.5rem;
+      margin-top: 1.5rem
     }
 
     .text-muted {
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.85rem
     }
 
     .text-gold {
-      color: var(--gold);
+      color: var(--gold)
     }
 
     .text-cyan {
-      color: var(--cyan);
+      color: var(--cyan)
     }
 
     .text-pink {
-      color: var(--pink);
+      color: var(--pink)
     }
 
     .confetti-piece {
@@ -1004,7 +985,7 @@
       border-radius: 2px;
       animation: confettiFall linear forwards;
       pointer-events: none;
-      z-index: 9997;
+      z-index: 9997
     }
 
     @keyframes confettiFall {
@@ -1021,22 +1002,13 @@
       border: 2px solid rgba(255, 255, 255, 0.3);
       border-top-color: currentColor;
       border-radius: 50%;
-      animation: spin 0.7s linear infinite;
+      animation: spin 0.7s linear infinite
     }
 
     @keyframes spin {
       to {
         transform: rotate(360deg)
       }
-    }
-
-    code {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85em;
-      color: var(--gold);
-      background: rgba(255, 215, 0, 0.08);
-      padding: 2px 6px;
-      border-radius: 4px;
     }
 
     @media(max-width:480px) {
@@ -1058,7 +1030,6 @@
 
 <body>
   <div class="bg-grid"></div>
-
   <nav>
     <div class="nav-logo">⚡ GameShow</div>
     <div class="nav-tabs">
@@ -1073,36 +1044,28 @@
     </div>
   </nav>
 
-  <!-- ═══ PAGE 1: REGISTER ═══ -->
+  <!-- REGISTER -->
   <div id="page-register" class="page active">
     <div class="hero">
-      <p class="hero-eyebrow">🎤 Live Event </p>
+      <p class="hero-eyebrow">🎤 Live Event</p>
       <h1 class="hero-title"><span class="line1">GAME</span><span class="line2">SHOW</span></h1>
       <p class="hero-sub">Answer fast. Score big. Top the board.<br>Register below to join the competition.</p>
       <div class="card" id="reg-form-card">
-        <div class="form-group">
-          <label class="form-label">Full Name</label>
-          <input class="form-input" id="reg-name" type="text" placeholder="your name" autocomplete="off">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Email Address</label>
-          <input class="form-input" id="reg-email" type="email" placeholder="you@example.com">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Phone Number</label>
-          <input class="form-input" id="reg-phone" type="tel" placeholder="+9198765***">
-        </div>
-        <div class="mt-2">
-          <button class="btn btn-primary btn-full" id="reg-btn" onclick="handleRegister()">⚡ JOIN THE GAME</button>
-        </div>
-        <p class="text-muted text-center mt-1" style="font-size:0.75rem;">Your answers are stored in the event sheet.
-        </p>
+        <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" id="reg-name"
+            type="text" placeholder="Your name" autocomplete="off"></div>
+        <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" id="reg-email"
+            type="email" placeholder="you@example.com"></div>
+        <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" id="reg-phone"
+            type="tel" placeholder="+91 98765 43210"></div>
+        <div class="mt-2"><button class="btn btn-primary btn-full" id="reg-btn" onclick="handleRegister()">⚡ JOIN THE
+            GAME</button></div>
+        <p class="text-muted text-center mt-1" style="font-size:0.75rem">Your answers are stored in the event sheet.</p>
       </div>
       <div class="card mt-3" style="display:none" id="reg-success-card">
         <div style="text-align:center;padding:2rem 0">
           <div class="result-icon">🎉</div>
           <div class="result-title correct" id="welcome-name">WELCOME!</div>
-          <p class="text-muted mt-2">You're registered! Wait for the host to start the first question.</p>
+          <p class="text-muted mt-2">You're registered! Wait for the host to start.</p>
           <div class="mt-3"><button class="btn btn-primary" onclick="goTo('quiz')">GO TO QUIZ →</button></div>
         </div>
       </div>
@@ -1134,7 +1097,7 @@
     </div>
   </div>
 
-  <!-- ═══ PAGE 2: QUIZ ═══ -->
+  <!-- QUIZ -->
   <div id="page-quiz" class="page">
     <div class="quiz-container">
       <div id="quiz-not-registered" class="card text-center" style="padding:3rem">
@@ -1172,8 +1135,7 @@
         <div style="text-align:center;padding:3rem 2rem">
           <div class="pulse-ring"></div>
           <div class="result-title waiting">STAND BY</div>
-          <p class="text-muted mt-2">The host will start the first question shortly.<br>This page updates automatically.
-          </p>
+          <p class="text-muted mt-2">The host will start shortly. This page updates automatically.</p>
           <p class="text-muted mt-2" style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:1px">
             POLLING EVERY 4 SECONDS...</p>
         </div>
@@ -1190,7 +1152,7 @@
     </div>
   </div>
 
-  <!-- ═══ PAGE 3: LEADERBOARD ═══ -->
+  <!-- LEADERBOARD -->
   <div id="page-leaderboard" class="page">
     <div class="lb-container">
       <div style="text-align:center;margin-bottom:2rem">
@@ -1200,15 +1162,13 @@
       <div id="lb-list">
         <div class="text-center text-muted" style="padding:3rem">Loading...</div>
       </div>
-      <div class="text-center mt-3">
-        <button class="btn btn-outline" onclick="refreshLeaderboard()">↻ REFRESH NOW</button>
-      </div>
+      <div class="text-center mt-3"><button class="btn btn-outline" onclick="refreshLeaderboard()">↻ REFRESH
+          NOW</button></div>
     </div>
   </div>
 
-  <!-- ═══ PAGE 4: ADMIN ═══ -->
+  <!-- ADMIN -->
   <div id="page-admin" class="page">
-    <!-- Gate -->
     <div class="gate" id="admin-gate">
       <div class="gate-card card">
         <div class="gate-title">🔐 ADMIN ACCESS</div>
@@ -1217,23 +1177,19 @@
           <input class="form-input" id="admin-pass" type="password" placeholder="Enter password..."
             onkeydown="if(event.key==='Enter')checkAdminPass()">
         </div>
-        <button class="btn btn-danger btn-full mt-2" onclick="checkAdminPass()">UNLOCK PANEL</button>
-        <p class="text-muted text-center mt-2" style="font-size:0.75rem">Password verified via Apps Script</p>
+        <button class="btn btn-danger btn-full mt-2" id="unlock-btn" onclick="checkAdminPass()">UNLOCK PANEL</button>
+        <p class="text-muted text-center mt-2" style="font-size:0.75rem">Password verified server-side</p>
       </div>
     </div>
-
-    <!-- Panel -->
     <div class="admin-container" id="admin-panel" style="display:none">
       <div class="admin-header">
         <div class="admin-title">⚙ ADMIN PANEL</div>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           <button class="btn btn-outline btn-sm" onclick="adminRefreshStatus()">↻ REFRESH</button>
-          <button class="btn btn-green btn-sm" onclick="adminStartGame()" id="btn-start">▶ START GAME</button>
+          <button class="btn btn-green btn-sm" onclick="adminStartGame()">▶ START GAME</button>
           <button class="btn btn-outline btn-sm" onclick="adminLogout()">LOGOUT</button>
         </div>
       </div>
-
-      <!-- Stats -->
       <div class="admin-grid">
         <div class="stat-card">
           <div class="stat-value text-gold" id="stat-participants">—</div>
@@ -1252,15 +1208,13 @@
           <div class="stat-label">Game Status</div>
         </div>
       </div>
-
-      <!-- Big question control -->
       <p class="section-title">Question Control</p>
       <div class="q-control-box">
         <div class="q-control-inner">
           <div class="q-big-num" id="admin-q-num">1</div>
           <div class="q-control-info">
             <div class="q-control-label">Currently Active Question</div>
-            <div class="q-control-text" id="admin-q-text">Loading question text...</div>
+            <div class="q-control-text" id="admin-q-text">Loading...</div>
             <div class="q-control-buttons">
               <button class="btn btn-danger btn-sm" onclick="adminPrevQuestion()" id="btn-prev">◀ PREV</button>
               <button class="btn btn-primary" onclick="adminNextQuestion()" id="btn-next"
@@ -1269,226 +1223,183 @@
           </div>
         </div>
       </div>
-
-      <!-- Question list with jump buttons -->
       <p class="section-title">All Questions — Click to Jump</p>
       <div class="q-list" id="admin-q-list">
-        <div class="text-muted" style="padding:1rem">Loading questions...</div>
+        <div class="text-muted" style="padding:1rem">Loading...</div>
       </div>
-
       <div class="divider"></div>
-
-      <!-- Danger zone -->
       <p class="section-title" style="color:var(--pink)">Danger Zone</p>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap">
-        <button class="btn btn-danger btn-sm" onclick="adminResetGame()">🔄 RESET GAME (Clears All Scores)</button>
-      </div>
-      <p class="text-muted mt-2" style="font-size:0.75rem;line-height:1.6">
-        ⚠️ Score editing (bonus points for stage explanations) is done directly in your Google Sheet.<br>
-        The Total column formula updates automatically when you edit any score cell.
-      </p>
+      <button class="btn btn-danger btn-sm" onclick="adminResetGame()">🔄 RESET GAME (Clears All Scores)</button>
+      <p class="text-muted mt-2" style="font-size:0.75rem;line-height:1.6">⚠️ Edit bonus points directly in Google
+        Sheet. Total column updates automatically.</p>
     </div>
   </div>
 
   <div class="toast" id="toast"></div>
 
   <script>
-    // ══════════════════════════════════════════════════════
-    //  CONFIGURATION — EDIT THESE BEFORE THE EVENT
-    // ══════════════════════════════════════════════════════
+    // ═══════════════════════════════════════
+    // CHANGE THIS TO YOUR APPS SCRIPT URL
+    // ═══════════════════════════════════════
     var API_URL = "https://script.google.com/macros/s/AKfycbxIpZil6DD4-gpnkwWqbL9v_FXbMLTfQplO3RzllXmKMzMPo1cTSEJGzqrXHJo7rloU/exec";
-    // Example: "https://script.google.com/macros/s/AKfycby.../exec"
 
-    // ── STATE ──────────────────────────────────────────────
+    // ═══════════════════════════════════════
+    // STATE
+    // ═══════════════════════════════════════
     var S = {
       registered: false,
       playerEmail: '',
       playerName: '',
       currentPage: 'register',
       currentQ: 0,
-      totalQ: 0,
       answered: false,
-      gameActive: false,
-      gameOver: false,
       adminUnlocked: false,
       adminPassword: '',
       pollTimer: null,
       lbTimer: null,
-      adminStatus: null,
     };
 
-    // ══════════════════════════════════════════════════════
-    //  API HELPERS
-    // ══════════════════════════════════════════════════════
-async function apiGet(params) {
-  var url = new URL(API_URL);
-  Object.keys(params).forEach(k => url.searchParams.set(k, params[k]));
-  var res = await fetch(url.toString(), { redirect: 'follow' });
-  return res.json();
-}
+    // ═══════════════════════════════════════
+    // API — using no-cors workaround for Google Apps Script
+    // ═══════════════════════════════════════
+    async function apiGet(params) {
+      var url = new URL(API_URL);
+      Object.keys(params).forEach(function (k) { url.searchParams.set(k, params[k]); });
+      var res = await fetch(url.toString(), { method: 'GET', redirect: 'follow' });
+      var text = await res.text();
+      try { return JSON.parse(text); } catch (e) { throw new Error('Bad response: ' + text.substring(0, 100)); }
+    }
 
-async function apiPost(body) {
-  var res = await fetch(API_URL, {
-    method: 'POST',
-    redirect: 'follow',
-    headers: { 'Content-Type': 'text/plain' },
-    body: JSON.stringify(body),
-  });
-  return res.json();
-}
+    async function apiPost(body) {
+      var res = await fetch(API_URL, {
+        method: 'POST',
+        redirect: 'follow',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(body)
+      });
+      var text = await res.text();
+      try { return JSON.parse(text); } catch (e) { throw new Error('Bad response: ' + text.substring(0, 100)); }
+    }
 
-    // ══════════════════════════════════════════════════════
-    //  NAVIGATION
-    // ══════════════════════════════════════════════════════
+    // ═══════════════════════════════════════
+    // NAVIGATION
+    // ═══════════════════════════════════════
     function goTo(page) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); });
+      document.querySelectorAll('.nav-tab').forEach(function (t) { t.classList.remove('active'); });
       document.getElementById('page-' + page).classList.add('active');
       var names = ['register', 'quiz', 'leaderboard', 'admin'];
       var tabs = document.querySelectorAll('.nav-tab');
       var idx = names.indexOf(page);
       if (tabs[idx]) tabs[idx].classList.add('active');
       S.currentPage = page;
-      if (page === 'quiz') { clearInterval(S.lbTimer); initQuiz(); }
-      if (page === 'leaderboard') { clearInterval(S.pollTimer); initLeaderboard(); }
-      if (page === 'admin' && S.adminUnlocked) adminRefreshStatus();
+      clearInterval(S.pollTimer);
+      clearInterval(S.lbTimer);
+      if (page === 'quiz') initQuiz();
+      if (page === 'leaderboard') initLeaderboard();
+      if (page === 'admin') initAdmin();
     }
 
-    // ══════════════════════════════════════════════════════
-    //  STATUS POLLING (global — updates nav + quiz)
-    // ══════════════════════════════════════════════════════
+    // ═══════════════════════════════════════
+    // STATUS POLL
+    // ═══════════════════════════════════════
     async function pollStatus() {
       try {
         var data = await apiGet({ action: 'currentQuestion' });
         if (!data.success) return;
-        var connDot = document.getElementById('conn-dot');
-        connDot.style.background = '#22C55E'; connDot.style.boxShadow = '0 0 8px #22C55E';
-
-        S.currentQ = data.currentQuestion;
-        S.totalQ = data.totalQuestions;
-        S.gameActive = data.gameActive;
-        S.gameOver = data.gameOver;
-
-        document.getElementById('nav-q-label').textContent = data.gameOver ? 'GAME OVER' : ('Q' + S.currentQ + ' LIVE');
-
+        var dot = document.getElementById('conn-dot');
+        dot.style.background = '#22C55E'; dot.style.boxShadow = '0 0 8px #22C55E';
+        document.getElementById('nav-q-label').textContent = data.gameOver ? 'GAME OVER' : 'Q' + data.currentQuestion + ' LIVE';
         if (S.currentPage === 'quiz') updateQuizUI(data);
       } catch (e) {
         var dot = document.getElementById('conn-dot');
         dot.style.background = '#EF4444'; dot.style.boxShadow = '0 0 8px #EF4444';
+        document.getElementById('nav-q-label').textContent = 'ERROR';
       }
     }
 
-    // ══════════════════════════════════════════════════════
-    //  REGISTER
-    // ══════════════════════════════════════════════════════
+    // ═══════════════════════════════════════
+    // REGISTER
+    // ═══════════════════════════════════════
     async function handleRegister() {
       var name = document.getElementById('reg-name').value.trim();
       var email = document.getElementById('reg-email').value.trim();
       var phone = document.getElementById('reg-phone').value.trim();
       if (!name || !email || !phone) { showToast('⚠️ Fill in all fields'); return; }
       if (!email.includes('@')) { showToast('⚠️ Invalid email'); return; }
-
       var btn = document.getElementById('reg-btn');
-      btn.innerHTML = '<span class="spinner"></span> REGISTERING...';
-      btn.disabled = true;
-
+      btn.innerHTML = '<span class="spinner"></span> REGISTERING...'; btn.disabled = true;
       try {
-        var data = await apiPost({ action: 'register', name, email, phone });
+        var data = await apiPost({ action: 'register', name: name, email: email, phone: phone });
         if (data.success) {
-          S.registered = true;
-          S.playerName = name;
-          S.playerEmail = email;
+          S.registered = true; S.playerName = name; S.playerEmail = email;
+          localStorage.setItem('gs_email', email);
+          localStorage.setItem('gs_name', name);
           document.getElementById('reg-form-card').style.display = 'none';
           document.getElementById('reg-success-card').style.display = 'block';
           document.getElementById('welcome-name').textContent = 'WELCOME, ' + name.split(' ')[0].toUpperCase() + '!';
           spawnConfetti();
-          showToast('✅ Registered! Good luck, ' + name.split(' ')[0] + '!');
-          localStorage.setItem('gs_email', email);
-          localStorage.setItem('gs_name', name);
+          showToast('✅ Registered! Good luck ' + name.split(' ')[0] + '!');
         } else {
           showToast('❌ ' + (data.error || 'Registration failed'));
           btn.innerHTML = '⚡ JOIN THE GAME'; btn.disabled = false;
         }
       } catch (e) {
-        showToast('❌ Network error — check API_URL in the code');
+        showToast('❌ Network error: ' + e.message);
         btn.innerHTML = '⚡ JOIN THE GAME'; btn.disabled = false;
       }
     }
 
-    // ══════════════════════════════════════════════════════
-    //  QUIZ
-    // ══════════════════════════════════════════════════════
+    // ═══════════════════════════════════════
+    // QUIZ
+    // ═══════════════════════════════════════
     function initQuiz() {
       if (!S.registered) {
         showEl('quiz-not-registered'); hideEl('quiz-active'); hideEl('quiz-waiting'); hideEl('quiz-done');
         return;
       }
       pollStatus();
-      clearInterval(S.pollTimer);
       S.pollTimer = setInterval(pollStatus, 4000);
     }
 
     function updateQuizUI(data) {
       hideEl('quiz-not-registered');
-
-      if (data.gameOver) {
-        showEl('quiz-done'); hideEl('quiz-active'); hideEl('quiz-waiting');
-        return;
-      }
-      if (!data.gameActive) {
-        showEl('quiz-waiting'); hideEl('quiz-active'); hideEl('quiz-done');
-        return;
-      }
-
+      if (data.gameOver) { showEl('quiz-done'); hideEl('quiz-active'); hideEl('quiz-waiting'); return; }
+      if (!data.gameActive) { showEl('quiz-waiting'); hideEl('quiz-active'); hideEl('quiz-done'); return; }
       showEl('quiz-active'); hideEl('quiz-waiting'); hideEl('quiz-done');
-
       document.getElementById('q-badge').textContent = 'QUESTION ' + data.currentQuestion + ' OF ' + data.totalQuestions;
       document.getElementById('q-text').textContent = data.questionText;
       document.getElementById('q-status-label').textContent = '🟢 LIVE';
-
-      // If question changed, reset answered state
-      if (S.currentQ !== data.currentQuestion) {
-        S.answered = false;
-      }
-
-      if (S.answered) {
-        hideEl('answer-area'); showEl('answer-submitted');
-      } else {
+      if (S.currentQ !== data.currentQuestion) { S.answered = false; S.currentQ = data.currentQuestion; }
+      if (S.answered) { hideEl('answer-area'); showEl('answer-submitted'); }
+      else {
         showEl('answer-area'); hideEl('answer-submitted');
         document.getElementById('answer-input').value = '';
+        var btn = document.getElementById('submit-btn');
+        btn.innerHTML = '⚡ SUBMIT ANSWER'; btn.disabled = false;
       }
     }
 
     async function handleSubmitAnswer() {
       var ans = document.getElementById('answer-input').value.trim();
       if (!ans) { showToast('⚠️ Type your answer first!'); return; }
-
       var btn = document.getElementById('submit-btn');
-      btn.innerHTML = '<span class="spinner"></span> SUBMITTING...';
-      btn.disabled = true;
-
+      btn.innerHTML = '<span class="spinner"></span> SUBMITTING...'; btn.disabled = true;
       try {
         var data = await apiPost({ action: 'submitAnswer', email: S.playerEmail, answer: ans });
-
         if (data.success) {
-          S.answered = true;
-          hideEl('answer-area'); showEl('answer-submitted');
-
+          S.answered = true; hideEl('answer-area'); showEl('answer-submitted');
           if (data.alreadyAnswered) {
-            setEl('answer-emoji', '⚠️');
-            setEl('answer-result-title', 'ALREADY SUBMITTED');
+            setEl('answer-emoji', '⚠️'); setEl('answer-result-title', 'ALREADY SUBMITTED');
             setEl('answer-result-msg', 'You already answered this question.');
             document.getElementById('answer-result-title').className = 'result-title waiting';
           } else if (data.correct) {
-            setEl('answer-emoji', '✅');
-            setEl('answer-result-title', 'CORRECT! +1 PT');
+            setEl('answer-emoji', '✅'); setEl('answer-result-title', 'CORRECT! +1 PT');
             setEl('answer-result-msg', 'Wait for the host to advance.');
             document.getElementById('answer-result-title').className = 'result-title correct';
-            spawnConfetti(25);
-            showToast('🎉 Correct! +1 point');
+            spawnConfetti(25); showToast('🎉 Correct! +1 point');
           } else {
-            setEl('answer-emoji', '❌');
-            setEl('answer-result-title', 'WRONG ANSWER');
+            setEl('answer-emoji', '❌'); setEl('answer-result-title', 'WRONG ANSWER');
             setEl('answer-result-msg', 'Better luck next question!');
             document.getElementById('answer-result-title').className = 'result-title wrong';
             showToast('❌ Wrong answer. 0 points.');
@@ -1498,17 +1409,16 @@ async function apiPost(body) {
           btn.innerHTML = '⚡ SUBMIT ANSWER'; btn.disabled = false;
         }
       } catch (e) {
-        showToast('❌ Network error');
+        showToast('❌ Network error: ' + e.message);
         btn.innerHTML = '⚡ SUBMIT ANSWER'; btn.disabled = false;
       }
     }
 
-    // ══════════════════════════════════════════════════════
-    //  LEADERBOARD
-    // ══════════════════════════════════════════════════════
+    // ═══════════════════════════════════════
+    // LEADERBOARD
+    // ═══════════════════════════════════════
     function initLeaderboard() {
       refreshLeaderboard();
-      clearInterval(S.lbTimer);
       S.lbTimer = setInterval(refreshLeaderboard, 5000);
     }
 
@@ -1522,17 +1432,12 @@ async function apiPost(body) {
     }
 
     function renderLeaderboard(list) {
-      if (!list || !list.length) {
-        document.getElementById('lb-list').innerHTML = '<div class="text-muted text-center" style="padding:3rem">No participants yet</div>';
-        return;
-      }
+      if (!list || !list.length) { document.getElementById('lb-list').innerHTML = '<div class="text-muted text-center" style="padding:3rem">No participants yet</div>'; return; }
       var maxScore = list[0].score || 1;
       var medals = ['🥇', '🥈', '🥉'];
-      var rankClasses = ['r1', 'r2', 'r3'];
-      var rowClasses = ['rank-1', 'rank-2', 'rank-3'];
+      var rCls = ['r1', 'r2', 'r3']; var rowCls = ['rank-1', 'rank-2', 'rank-3'];
       var html = list.map(function (p, i) {
-        var rClass = i < 3 ? rowClasses[i] : '';
-        var numClass = i < 3 ? rankClasses[i] : 'rn';
+        var rClass = i < 3 ? rowCls[i] : ''; var numClass = i < 3 ? rCls[i] : 'rn';
         var rankDisplay = i < 3 ? medals[i] : '#' + p.rank;
         var barWidth = maxScore > 0 ? Math.round((p.score / maxScore) * 100) : 0;
         return '<div class="lb-row ' + rClass + '" style="animation-delay:' + (i * 0.06) + 's">' +
@@ -1545,25 +1450,51 @@ async function apiPost(body) {
       document.getElementById('lb-list').innerHTML = html;
     }
 
-    // ══════════════════════════════════════════════════════
-    //  ADMIN
-    // ══════════════════════════════════════════════════════
+    // ═══════════════════════════════════════
+    // ADMIN
+    // ═══════════════════════════════════════
+    function initAdmin() {
+      if (S.adminUnlocked) {
+        document.getElementById('admin-gate').style.display = 'none';
+        document.getElementById('admin-panel').style.display = 'block';
+        adminRefreshStatus();
+      } else {
+        document.getElementById('admin-gate').style.display = 'flex';
+        document.getElementById('admin-panel').style.display = 'none';
+      }
+    }
+
     async function checkAdminPass() {
       var pass = document.getElementById('admin-pass').value;
-      if (!pass) { showToast('Enter password'); return; }
-
-      // Verify by calling nextQuestion with dummy — actually we call getStatus and trust the password
-      // Real verification happens server-side on every admin action
-       S.adminPassword = pass;
-       localStorage.setItem('gs_admin_pass', pass);
-       S.adminUnlocked = true;
-       document.getElementById('admin-gate').style.display = 'none';
-      document.getElementById('admin-panel').style.display = 'block';
-      await adminRefreshStatus();
+      if (!pass) { showToast('⚠️ Enter password'); return; }
+      var btn = document.getElementById('unlock-btn');
+      btn.innerHTML = '<span class="spinner"></span> CHECKING...'; btn.disabled = true;
+      try {
+        // Verify password by calling status — if wrong password on admin action it returns Unauthorized
+        // We verify by trying nextQuestion and checking response
+        var data = await apiPost({ action: 'setQuestion', adminKey: pass, question: 999 });
+        // If response is "Invalid question" — password was correct (it passed auth, just bad question num)
+        // If response is "Unauthorized" — wrong password
+        if (data.error === 'Unauthorized') {
+          showToast('❌ Wrong password!');
+          btn.innerHTML = 'UNLOCK PANEL'; btn.disabled = false;
+          return;
+        }
+        // Password is correct
+        S.adminPassword = pass; S.adminUnlocked = true;
+        localStorage.setItem('gs_admin_pass', pass);
+        document.getElementById('admin-gate').style.display = 'none';
+        document.getElementById('admin-panel').style.display = 'block';
+        await adminRefreshStatus();
+      } catch (e) {
+        showToast('❌ Network error: ' + e.message);
+      }
+      btn.innerHTML = 'UNLOCK PANEL'; btn.disabled = false;
     }
 
     function adminLogout() {
-      S.adminUnlocked = false; S.adminPassword = ''; localStorage.removeItem('gs_admin_pass');
+      S.adminUnlocked = false; S.adminPassword = '';
+      localStorage.removeItem('gs_admin_pass');
       document.getElementById('admin-gate').style.display = 'flex';
       document.getElementById('admin-panel').style.display = 'none';
       document.getElementById('admin-pass').value = '';
@@ -1572,109 +1503,88 @@ async function apiPost(body) {
     async function adminRefreshStatus() {
       try {
         var data = await apiGet({ action: 'status' });
-        if (!data.success) { showToast('❌ Could not load status'); return; }
-        S.adminStatus = data;
+        if (!data.success) { showToast('❌ Could not load status: ' + (data.error || '')); return; }
         renderAdminPanel(data);
-      } catch (e) {
-        showToast('❌ Network error');
-      }
+      } catch (e) { showToast('❌ Network error: ' + e.message); }
     }
 
     function renderAdminPanel(data) {
       setEl('stat-participants', data.participants);
       setEl('stat-current-q', data.currentQuestion);
       setEl('stat-total-q', data.totalQuestions);
-
-      var status = data.gameOver ? '🏁 OVER' : data.gameActive ? '🟢 LIVE' : '⏸ PAUSED';
-      setEl('stat-game-status', status);
-
+      setEl('stat-game-status', data.gameOver ? '🏁 OVER' : data.gameActive ? '🟢 LIVE' : '⏸ PAUSED');
       var q = data.questions && data.questions.find(function (q) { return q.id === data.currentQuestion; });
       setEl('admin-q-num', data.currentQuestion);
       setEl('admin-q-text', q ? q.text : (data.gameOver ? 'All questions complete!' : 'Game not started'));
-
-      // Disable prev/next appropriately
       document.getElementById('btn-prev').disabled = data.currentQuestion <= 1;
       document.getElementById('btn-next').disabled = data.gameOver;
-
-      // Question list
       if (!data.questions) return;
-      var listHtml = data.questions.map(function (q) {
+      var html = data.questions.map(function (q) {
         var isCurrent = q.id === data.currentQuestion;
         var isClosed = q.id < data.currentQuestion;
         var cls = isCurrent ? 'is-active' : isClosed ? 'is-closed' : '';
-        var statusCls = isCurrent ? 's-active' : isClosed ? 's-closed' : 's-upcoming';
-        var statusText = isCurrent ? 'ACTIVE ●' : isClosed ? 'CLOSED' : 'UPCOMING';
+        var sCls = isCurrent ? 's-active' : isClosed ? 's-closed' : 's-upcoming';
+        var sTxt = isCurrent ? 'ACTIVE ●' : isClosed ? 'CLOSED' : 'UPCOMING';
         return '<div class="q-item ' + cls + '">' +
           '<div class="q-item-num">' + q.id + '</div>' +
           '<div class="q-item-text">' + esc(q.text) + '</div>' +
-          '<span class="q-item-status ' + statusCls + '">' + statusText + '</span>' +
+          '<span class="q-item-status ' + sCls + '">' + sTxt + '</span>' +
           (!isCurrent ? '<button class="q-item-jump" onclick="adminJumpTo(' + q.id + ')">JUMP HERE</button>' : '') +
           '</div>';
       }).join('');
-      document.getElementById('admin-q-list').innerHTML = listHtml;
+      document.getElementById('admin-q-list').innerHTML = html;
     }
 
     async function adminNextQuestion() {
       var btn = document.getElementById('btn-next');
-      btn.innerHTML = '<span class="spinner"></span> ...'; btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span>'; btn.disabled = true;
       try {
         var data = await apiPost({ action: 'nextQuestion', adminKey: S.adminPassword });
-        if (data.success) {
-          showToast(data.gameOver ? '🏁 Game over! All questions complete.' : '⏭ Advanced to Q' + data.currentQuestion);
-          S.currentQ = data.currentQuestion;
-          await adminRefreshStatus();
-        } else {
-          showToast('❌ ' + (data.error || 'Failed'));
-        }
-      } catch (e) { showToast('❌ Network error'); }
+        if (data.success) { showToast(data.gameOver ? '🏁 Game over!' : '⏭ Advanced to Q' + data.currentQuestion); await adminRefreshStatus(); }
+        else showToast('❌ ' + (data.error || 'Failed'));
+      } catch (e) { showToast('❌ ' + e.message); }
       btn.innerHTML = '⏭ NEXT QUESTION'; btn.disabled = false;
     }
 
     async function adminPrevQuestion() {
       try {
         var data = await apiPost({ action: 'prevQuestion', adminKey: S.adminPassword });
-        if (data.success) {
-          showToast('◀ Went back to Q' + data.currentQuestion);
-          await adminRefreshStatus();
-        } else { showToast('❌ ' + (data.error || 'Failed')); }
-      } catch (e) { showToast('❌ Network error'); }
+        if (data.success) { showToast('◀ Back to Q' + data.currentQuestion); await adminRefreshStatus(); }
+        else showToast('❌ ' + (data.error || 'Failed'));
+      } catch (e) { showToast('❌ ' + e.message); }
     }
 
     async function adminJumpTo(qNum) {
-      if (!confirm('Jump to Question ' + qNum + '? This will lock all previous questions.')) return;
+      if (!confirm('Jump to Question ' + qNum + '?')) return;
       try {
         var data = await apiPost({ action: 'setQuestion', adminKey: S.adminPassword, question: qNum });
-        if (data.success) {
-          showToast('↗ Jumped to Q' + qNum);
-          await adminRefreshStatus();
-        } else { showToast('❌ ' + (data.error || 'Failed')); }
-      } catch (e) { showToast('❌ Network error'); }
+        if (data.success) { showToast('↗ Jumped to Q' + qNum); await adminRefreshStatus(); }
+        else showToast('❌ ' + (data.error || 'Failed'));
+      } catch (e) { showToast('❌ ' + e.message); }
     }
 
     async function adminStartGame() {
-      if (!confirm('Start the game at Question 1?')) return;
+      if (!confirm('Start game at Question 1?')) return;
       try {
         var data = await apiPost({ action: 'setQuestion', adminKey: S.adminPassword, question: 1 });
-        // Also call nextQ which sets gameActive=true via setQuestion
-        var data2 = await apiPost({ action: 'setQuestion', adminKey: S.adminPassword, question: 1 });
-        showToast('▶ Game started!');
-        await adminRefreshStatus();
-      } catch (e) { showToast('❌ Network error'); }
+        if (data.success) { showToast('▶ Game started!'); await adminRefreshStatus(); }
+        else showToast('❌ ' + (data.error || 'Failed — check password'));
+      } catch (e) { showToast('❌ ' + e.message); }
     }
 
     async function adminResetGame() {
-      if (!confirm('⚠️ RESET GAME? This clears ALL scores. Cannot be undone!')) return;
-      if (!confirm('Are you really sure? All scores will be deleted.')) return;
+      if (!confirm('⚠️ RESET GAME? Clears ALL scores!')) return;
+      if (!confirm('Really sure? Cannot be undone.')) return;
       try {
         var data = await apiPost({ action: 'resetGame', adminKey: S.adminPassword });
-        if (data.success) { showToast('🔄 Game reset. All scores cleared.'); await adminRefreshStatus(); }
-        else { showToast('❌ ' + (data.error || 'Failed — check your admin password')); }
-      } catch (e) { showToast('❌ Network error'); }
+        if (data.success) { showToast('🔄 Game reset.'); await adminRefreshStatus(); }
+        else showToast('❌ ' + (data.error || 'Failed'));
+      } catch (e) { showToast('❌ ' + e.message); }
     }
 
-    // ══════════════════════════════════════════════════════
-    //  UTILS
-    // ══════════════════════════════════════════════════════
+    // ═══════════════════════════════════════
+    // UTILS
+    // ═══════════════════════════════════════
     function showEl(id) { var e = document.getElementById(id); if (e) e.style.display = ''; }
     function hideEl(id) { var e = document.getElementById(id); if (e) e.style.display = 'none'; }
     function setEl(id, v) { var e = document.getElementById(id); if (e) e.textContent = v; }
@@ -1683,26 +1593,30 @@ async function apiPost(body) {
     function showToast(msg, ms) {
       var t = document.getElementById('toast');
       t.textContent = msg; t.classList.add('show');
-      setTimeout(function () { t.classList.remove('show'); }, ms || 3500);
+      setTimeout(function () { t.classList.remove('show'); }, ms || 4000);
     }
 
     function spawnConfetti(count) {
       count = count || 60;
       var colors = ['#FFD700', '#FF6B00', '#FF2D6B', '#00F5FF', '#22C55E', '#A855F7'];
       for (var i = 0; i < count; i++) {
-        var el = document.createElement('div');
-        el.className = 'confetti-piece';
+        var el = document.createElement('div'); el.className = 'confetti-piece';
         el.style.cssText = 'left:' + Math.random() * 100 + '%;background:' + colors[Math.floor(Math.random() * colors.length)] + ';width:' + (6 + Math.random() * 8) + 'px;height:' + (6 + Math.random() * 8) + 'px;border-radius:' + (Math.random() > 0.5 ? '50%' : '2px') + ';animation-duration:' + (1.5 + Math.random() * 2) + 's;animation-delay:' + (Math.random() * 0.5) + 's';
         document.body.appendChild(el);
         setTimeout(function () { el.remove(); }, 3500);
       }
     }
 
-    // ── RESTORE SESSION ──────────────────────────────────
-window.addEventListener('DOMContentLoaded', function () {
-  var savedPass = localStorage.getItem('gs_admin_pass');
-  if (savedPass) { S.adminPassword = savedPass; S.adminUnlocked = true; }
-  var savedEmail = localStorage.getItem('gs_email');
+    // ═══════════════════════════════════════
+    // RESTORE SESSION ON PAGE LOAD
+    // ═══════════════════════════════════════
+    window.addEventListener('DOMContentLoaded', function () {
+      // Restore admin session
+      var savedPass = localStorage.getItem('gs_admin_pass');
+      if (savedPass) { S.adminPassword = savedPass; S.adminUnlocked = true; }
+
+      // Restore player session
+      var savedEmail = localStorage.getItem('gs_email');
       var savedName = localStorage.getItem('gs_name');
       if (savedEmail && savedName) {
         S.registered = true; S.playerEmail = savedEmail; S.playerName = savedName;
@@ -1710,8 +1624,10 @@ window.addEventListener('DOMContentLoaded', function () {
         document.getElementById('reg-success-card').style.display = 'block';
         document.getElementById('welcome-name').textContent = 'WELCOME BACK, ' + savedName.split(' ')[0].toUpperCase() + '!';
       }
-      // Initial status ping
-      if (API_URL !== 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE') pollStatus();
+
+      // Start polling
+      pollStatus();
+      setInterval(pollStatus, 4000);
     });
   </script>
 </body>
