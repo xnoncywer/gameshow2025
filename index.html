@@ -1137,7 +1137,7 @@
           <div class="result-title waiting">STAND BY</div>
           <p class="text-muted mt-2">The host will start shortly. This page updates automatically.</p>
           <p class="text-muted mt-2" style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:1px">
-            POLLING EVERY 4 SECONDS...</p>
+            LIVE UPDATES</p>
         </div>
       </div>
       <div id="quiz-done" style="display:none" class="card">
@@ -1378,7 +1378,7 @@ function initQuiz() {
 
   // Start quiz polling
   pollStatus();
-  S.pollTimer = setInterval(pollStatus, 2000);
+  S.pollTimer = setInterval(pollStatus, 1000);
 }
 
 function updateQuizUI(data) {
@@ -1474,7 +1474,7 @@ function updateQuizUI(data) {
     // ═══════════════════════════════════════
     function initLeaderboard() {
       refreshLeaderboard();
-      S.lbTimer = setInterval(refreshLeaderboard, 5000);
+      S.lbTimer = setInterval(refreshLeaderboard, 3000);
     }
 
     async function refreshLeaderboard() {
@@ -1682,7 +1682,7 @@ function updateQuizUI(data) {
 
       // Start polling
       pollStatus();
-      setInterval(pollStatus, 4000);
+     
     });
   </script>
 </body>
