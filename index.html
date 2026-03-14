@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameShow 2025</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --gold: #FFD700;
+      --orange: #FF6B00;
+      --pink: #FF2D6B;
+      --cyan: #00F5FF;
+      --dark: #0A0A0F;
+      --darker: #050508;
+      --card: #111118;
+      --border: rgba(255, 215, 0, 0.15);
+      --text: #F0EDE5;
+      --muted: #7A7A8A;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Syne', sans-serif;
+      background: var(--darker);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.07) 2px, rgba(0, 0, 0, 0.07) 4px);
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(rgba(255, 215, 0, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 215, 0, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+      animation: gridShift 20s linear infinite;
+    }
+
+    @keyframes gridShift {
+      from {
+        transform: translateY(0)
+      }
+
+      to {
+        transform: translateY(50px)
+      }
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 64px;
+      background: rgba(5, 5, 8, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 4px;
+    }
+
+    .nav-tab {
+      padding: 6px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .nav-tab:hover {
+      color: var(--gold);
+      border-color: var(--border);
+    }
+
+    .nav-tab.active {
+      color: var(--dark);
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .nav-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 8px #22C55E;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.4
+      }
+    }
+
+    .page {
+      display: none;
+      min-height: 100vh;
+      padding-top: 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* CARDS & FORMS */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--orange), var(--pink));
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+      text-align: left;
+    }
+
+    .form-label {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      transition: all 0.2s;
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--gold);
+      background: rgba(255, 215, 0, 0.05);
+      box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.08);
+    }
+
+    .form-input::placeholder {
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 3px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      color: var(--dark);
+      box-shadow: 0 4px 24px rgba(255, 215, 0, 0.3);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(255, 215, 0, 0.45);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+
+    .btn-outline:hover:not(:disabled) {
+      background: rgba(255, 215, 0, 0.08);
+    }
+
+    .btn-danger {
+      background: linear-gradient(135deg, var(--pink), #C0143C);
+      color: white;
+      box-shadow: 0 4px 20px rgba(255, 45, 107, 0.3);
+    }
+
+    .btn-danger:hover:not(:disabled) {
+      transform: translateY(-2px);
+    }
+
+    .btn-cyan {
+      background: linear-gradient(135deg, var(--cyan), #0099CC);
+      color: var(--dark);
+      box-shadow: 0 4px 20px rgba(0, 245, 255, 0.25);
+    }
+
+    .btn-cyan:hover:not(:disabled) {
+      transform: translateY(-2px);
+    }
+
+    .btn-green {
+      background: linear-gradient(135deg, #22C55E, #16A34A);
+      color: white;
+      box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
+    }
+
+    .btn-green:hover:not(:disabled) {
+      transform: translateY(-2px);
+    }
+
+    .btn-full {
+      width: 100%;
+    }
+
+    .btn-sm {
+      padding: 8px 18px;
+      font-size: 0.85rem;
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 12vw, 7rem);
+      line-height: 0.9;
+      letter-spacing: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title .line1 {
+      display: block;
+      color: var(--text);
+    }
+
+    .hero-title .line2 {
+      display: block;
+      background: linear-gradient(90deg, var(--gold), var(--orange), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 3s ease-in-out infinite;
+      background-size: 200%;
+    }
+
+    @keyframes shimmer {
+
+      0%,
+      100% {
+        background-position: 0%
+      }
+
+      50% {
+        background-position: 100%
+      }
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    /* QUIZ */
+    .quiz-container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .quiz-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    .q-badge {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 3px;
+      color: var(--gold);
+      background: rgba(255, 215, 0, 0.1);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      padding: 6px 16px;
+      border-radius: 4px;
+    }
+
+    .q-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      color: var(--text);
+      letter-spacing: 1px;
+    }
+
+    .answer-input {
+      width: 100%;
+      padding: 18px 20px;
+      font-size: 1.2rem;
+      font-family: 'Syne', sans-serif;
+      background: rgba(0, 245, 255, 0.04);
+      border: 2px solid rgba(0, 245, 255, 0.25);
+      border-radius: 10px;
+      color: var(--text);
+      outline: none;
+      transition: all 0.2s;
+      margin-bottom: 1rem;
+    }
+
+    .answer-input:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(0, 245, 255, 0.1);
+    }
+
+    .answer-input::placeholder {
+      color: var(--muted);
+    }
+
+    .result-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .result-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 3px;
+    }
+
+    .result-title.correct {
+      color: #22C55E;
+      text-shadow: 0 0 30px rgba(34, 197, 94, 0.5);
+    }
+
+    .result-title.wrong {
+      color: var(--pink);
+    }
+
+    .result-title.waiting {
+      color: var(--gold);
+    }
+
+    .pulse-ring {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      margin: 0 auto 2rem;
+      animation: ring 1.5s ease-in-out infinite;
+    }
+
+    @keyframes ring {
+      0% {
+        transform: scale(0.8);
+        opacity: 1
+      }
+
+      100% {
+        transform: scale(1.4);
+        opacity: 0
+      }
+    }
+
+    /* LEADERBOARD */
+    .lb-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .lb-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 8vw, 5rem);
+      letter-spacing: 6px;
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .lb-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-top: 4px;
+      margin-bottom: 2rem;
+    }
+
+    .lb-row {
+      display: grid;
+      grid-template-columns: 60px 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+      animation: slideIn 0.4s ease both;
+    }
+
+    .lb-row:hover {
+      border-color: rgba(255, 215, 0, 0.3);
+      transform: translateX(4px);
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0)
+      }
+    }
+
+    .lb-row.rank-1 {
+      border-color: rgba(255, 215, 0, 0.5);
+      background: rgba(255, 215, 0, 0.05);
+    }
+
+    .lb-row.rank-2 {
+      border-color: rgba(192, 192, 192, 0.4);
+      background: rgba(192, 192, 192, 0.03);
+    }
+
+    .lb-row.rank-3 {
+      border-color: rgba(205, 127, 50, 0.4);
+      background: rgba(205, 127, 50, 0.03);
+    }
+
+    .lb-row.rank-1::before,
+    .lb-row.rank-2::before,
+    .lb-row.rank-3::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+    }
+
+    .lb-row.rank-1::before {
+      background: var(--gold);
+    }
+
+    .lb-row.rank-2::before {
+      background: #C0C0C0;
+    }
+
+    .lb-row.rank-3::before {
+      background: #CD7F32;
+    }
+
+    .lb-rank {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .lb-rank.r1 {
+      color: var(--gold);
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    }
+
+    .lb-rank.r2 {
+      color: #C0C0C0;
+    }
+
+    .lb-rank.r3 {
+      color: #CD7F32;
+    }
+
+    .lb-rank.rn {
+      color: var(--muted);
+      font-size: 1.2rem;
+    }
+
+    .lb-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .lb-name small {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    .lb-score {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      color: var(--cyan);
+      text-shadow: 0 0 15px rgba(0, 245, 255, 0.4);
+    }
+
+    .lb-score small {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-align: right;
+    }
+
+    .lb-bar-bg {
+      grid-column: 1/-1;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .lb-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--orange));
+      border-radius: 2px;
+      transition: width 1s ease;
+    }
+
+    .lb-row.rank-2 .lb-bar {
+      background: linear-gradient(90deg, #C0C0C0, #A0A0A0);
+    }
+
+    .lb-row.rank-3 .lb-bar {
+      background: linear-gradient(90deg, #CD7F32, #A0642A);
+    }
+
+    /* ADMIN */
+    .admin-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .admin-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .admin-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 4px;
+      color: var(--pink);
+      text-shadow: 0 0 20px rgba(255, 45, 107, 0.4);
+    }
+
+    .admin-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 3px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 4px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* QUESTION CONTROL BOX */
+    .q-control-box {
+      background: var(--card);
+      border: 2px solid rgba(255, 215, 0, 0.3);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .q-control-box::before {
+      content: '';
+      position: absolute;
+      display: none;
+    }
+
+    .q-control-inner {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .q-big-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: 2px;
+      text-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .q-control-info {
+      flex: 1;
+    }
+
+    .q-control-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .q-control-text {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .q-control-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      align-items: center;
+    }
+
+    .q-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .q-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .q-item:hover {
+      border-color: rgba(255, 215, 0, 0.3);
+    }
+
+    .q-item.is-active {
+      border-color: var(--gold);
+      background: rgba(255, 215, 0, 0.05);
+    }
+
+    .q-item.is-closed {
+      opacity: 0.5;
+    }
+
+    .q-item-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      min-width: 32px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .q-item.is-active .q-item-num {
+      color: var(--gold);
+    }
+
+    .q-item-text {
+      flex: 1;
+    }
+
+    .q-item-status {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 1px;
+      padding: 3px 8px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .s-active {
+      background: rgba(255, 215, 0, 0.15);
+      color: var(--gold);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+    }
+
+    .s-closed {
+      background: rgba(255, 45, 107, 0.1);
+      color: var(--pink);
+      border: 1px solid rgba(255, 45, 107, 0.2);
+    }
+
+    .s-upcoming {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--muted);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .q-item-jump {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      padding: 4px 10px;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 4px;
+      color: var(--gold);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .q-item-jump:hover {
+      background: rgba(255, 215, 0, 0.1);
+    }
+
+    /* GATE */
+    .gate {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .gate-card {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .gate-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 4px;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--pink);
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--card);
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--gold);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s;
+      z-index: 9998;
+      max-width: 320px;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* POINTS TABLE */
+    .points-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .points-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    .points-table td:last-child {
+      text-align: right;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      color: var(--gold);
+    }
+
+    .points-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* MISC */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 1.5rem 0;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .mt-1 {
+      margin-top: 0.5rem;
+    }
+
+    .mt-2 {
+      margin-top: 1rem;
+    }
+
+    .mt-3 {
+      margin-top: 1.5rem;
+    }
+
+    .text-muted {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .text-gold {
+      color: var(--gold);
+    }
+
+    .text-cyan {
+      color: var(--cyan);
+    }
+
+    .text-pink {
+      color: var(--pink);
+    }
+
+    .confetti-piece {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      top: -10px;
+      border-radius: 2px;
+      animation: confettiFall linear forwards;
+      pointer-events: none;
+      z-index: 9997;
+    }
+
+    @keyframes confettiFall {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0
+      }
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top-color: currentColor;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85em;
+      color: var(--gold);
+      background: rgba(255, 215, 0, 0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    @media(max-width:480px) {
+      nav {
+        padding: 0 1rem
+      }
+
+      .nav-tabs {
+        gap: 2px
+      }
+
+      .nav-tab {
+        padding: 6px 8px;
+        font-size: 0.58rem
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-grid"></div>
+
+  <nav>
+    <div class="nav-logo">⚡ GameShow</div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="goTo('register')">Register</button>
+      <button class="nav-tab" onclick="goTo('quiz')">Quiz</button>
+      <button class="nav-tab" onclick="goTo('leaderboard')">Board</button>
+      <button class="nav-tab" onclick="goTo('admin')">Admin</button>
+    </div>
+    <div class="nav-status">
+      <div class="status-dot" id="conn-dot" style="background:#EF4444;box-shadow:0 0 8px #EF4444"></div>
+      <span id="nav-q-label">CONNECTING...</span>
+    </div>
+  </nav>
+
+  <!-- ═══ PAGE 1: REGISTER ═══ -->
+  <div id="page-register" class="page active">
+    <div class="hero">
+      <p class="hero-eyebrow">🎤 Live Event </p>
+      <h1 class="hero-title"><span class="line1">GAME</span><span class="line2">SHOW</span></h1>
+      <p class="hero-sub">Answer fast. Score big. Top the board.<br>Register below to join the competition.</p>
+      <div class="card" id="reg-form-card">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input class="form-input" id="reg-name" type="text" placeholder="your name" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" id="reg-email" type="email" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input class="form-input" id="reg-phone" type="tel" placeholder="+9198765***">
+        </div>
+        <div class="mt-2">
+          <button class="btn btn-primary btn-full" id="reg-btn" onclick="handleRegister()">⚡ JOIN THE GAME</button>
+        </div>
+        <p class="text-muted text-center mt-1" style="font-size:0.75rem;">Your answers are stored in the event sheet.
+        </p>
+      </div>
+      <div class="card mt-3" style="display:none" id="reg-success-card">
+        <div style="text-align:center;padding:2rem 0">
+          <div class="result-icon">🎉</div>
+          <div class="result-title correct" id="welcome-name">WELCOME!</div>
+          <p class="text-muted mt-2">You're registered! Wait for the host to start the first question.</p>
+          <div class="mt-3"><button class="btn btn-primary" onclick="goTo('quiz')">GO TO QUIZ →</button></div>
+        </div>
+      </div>
+      <div class="card mt-3">
+        <p class="section-title">How Points Work</p>
+        <table class="points-table">
+          <tr>
+            <td>✅ Correct answer submitted online</td>
+            <td>1 pt</td>
+          </tr>
+          <tr>
+            <td>🎤 Explain your answer on stage</td>
+            <td>+2 pts</td>
+          </tr>
+          <tr>
+            <td>❓ Answer judge's follow-up question</td>
+            <td>+3 pts</td>
+          </tr>
+          <tr>
+            <td>❌ Wrong answer</td>
+            <td>0 pts</td>
+          </tr>
+          <tr>
+            <td>⏰ Late submission (question closed)</td>
+            <td>Rejected</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE 2: QUIZ ═══ -->
+  <div id="page-quiz" class="page">
+    <div class="quiz-container">
+      <div id="quiz-not-registered" class="card text-center" style="padding:3rem">
+        <div style="font-size:3rem;margin-bottom:1rem">🔒</div>
+        <div class="result-title waiting">REGISTER FIRST</div>
+        <p class="text-muted mt-2">Register before accessing the quiz.</p>
+        <div class="mt-3"><button class="btn btn-primary" onclick="goTo('register')">← REGISTER NOW</button></div>
+      </div>
+      <div id="quiz-active" style="display:none">
+        <div class="quiz-header">
+          <div class="q-badge" id="q-badge">QUESTION 1</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--muted)" id="q-status-label">
+            LIVE</div>
+        </div>
+        <div class="card">
+          <p
+            style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:2px;color:var(--muted);margin-bottom:0.8rem">
+            CURRENT QUESTION</p>
+          <div class="q-text" id="q-text">Loading...</div>
+          <div id="answer-area">
+            <label class="form-label">Your Answer</label>
+            <input class="answer-input" id="answer-input" type="text" placeholder="Type your answer here..."
+              autocomplete="off" onkeydown="if(event.key==='Enter')handleSubmitAnswer()">
+            <button class="btn btn-cyan btn-full" id="submit-btn" onclick="handleSubmitAnswer()">⚡ SUBMIT
+              ANSWER</button>
+          </div>
+          <div id="answer-submitted" style="display:none;text-align:center;padding:1.5rem 0">
+            <div style="font-size:2.5rem;margin:1rem 0" id="answer-emoji">✅</div>
+            <div class="result-title" id="answer-result-title" style="font-size:2rem">SUBMITTED!</div>
+            <p class="text-muted mt-1" id="answer-result-msg">Waiting for host to advance...</p>
+          </div>
+        </div>
+      </div>
+      <div id="quiz-waiting" style="display:none" class="card">
+        <div style="text-align:center;padding:3rem 2rem">
+          <div class="pulse-ring"></div>
+          <div class="result-title waiting">STAND BY</div>
+          <p class="text-muted mt-2">The host will start the first question shortly.<br>This page updates automatically.
+          </p>
+          <p class="text-muted mt-2" style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:1px">
+            POLLING EVERY 4 SECONDS...</p>
+        </div>
+      </div>
+      <div id="quiz-done" style="display:none" class="card">
+        <div style="text-align:center;padding:3rem 2rem">
+          <div class="result-icon">🏆</div>
+          <div class="result-title correct">GAME OVER!</div>
+          <p class="text-muted mt-2">All questions answered. Check the leaderboard!</p>
+          <div class="mt-3"><button class="btn btn-primary" onclick="goTo('leaderboard')">VIEW LEADERBOARD →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE 3: LEADERBOARD ═══ -->
+  <div id="page-leaderboard" class="page">
+    <div class="lb-container">
+      <div style="text-align:center;margin-bottom:2rem">
+        <div class="lb-title">LEADERBOARD</div>
+        <div class="lb-sub">🔴 LIVE · Auto-refreshes every 5 seconds</div>
+      </div>
+      <div id="lb-list">
+        <div class="text-center text-muted" style="padding:3rem">Loading...</div>
+      </div>
+      <div class="text-center mt-3">
+        <button class="btn btn-outline" onclick="refreshLeaderboard()">↻ REFRESH NOW</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE 4: ADMIN ═══ -->
+  <div id="page-admin" class="page">
+    <!-- Gate -->
+    <div class="gate" id="admin-gate">
+      <div class="gate-card card">
+        <div class="gate-title">🔐 ADMIN ACCESS</div>
+        <div class="form-group">
+          <label class="form-label">Admin Password</label>
+          <input class="form-input" id="admin-pass" type="password" placeholder="Enter password..."
+            onkeydown="if(event.key==='Enter')checkAdminPass()">
+        </div>
+        <button class="btn btn-danger btn-full mt-2" onclick="checkAdminPass()">UNLOCK PANEL</button>
+        <p class="text-muted text-center mt-2" style="font-size:0.75rem">Password verified via Apps Script</p>
+      </div>
+    </div>
+
+    <!-- Panel -->
+    <div class="admin-container" id="admin-panel" style="display:none">
+      <div class="admin-header">
+        <div class="admin-title">⚙ ADMIN PANEL</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-outline btn-sm" onclick="adminRefreshStatus()">↻ REFRESH</button>
+          <button class="btn btn-green btn-sm" onclick="adminStartGame()" id="btn-start">▶ START GAME</button>
+          <button class="btn btn-outline btn-sm" onclick="adminLogout()">LOGOUT</button>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="admin-grid">
+        <div class="stat-card">
+          <div class="stat-value text-gold" id="stat-participants">—</div>
+          <div class="stat-label">Participants</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value text-cyan" id="stat-current-q">—</div>
+          <div class="stat-label">Current Question</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value text-pink" id="stat-total-q">—</div>
+          <div class="stat-label">Total Questions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-game-status" style="font-size:1.5rem">—</div>
+          <div class="stat-label">Game Status</div>
+        </div>
+      </div>
+
+      <!-- Big question control -->
+      <p class="section-title">Question Control</p>
+      <div class="q-control-box">
+        <div class="q-control-inner">
+          <div class="q-big-num" id="admin-q-num">1</div>
+          <div class="q-control-info">
+            <div class="q-control-label">Currently Active Question</div>
+            <div class="q-control-text" id="admin-q-text">Loading question text...</div>
+            <div class="q-control-buttons">
+              <button class="btn btn-danger btn-sm" onclick="adminPrevQuestion()" id="btn-prev">◀ PREV</button>
+              <button class="btn btn-primary" onclick="adminNextQuestion()" id="btn-next"
+                style="font-size:1.1rem;padding:12px 28px">⏭ NEXT QUESTION</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question list with jump buttons -->
+      <p class="section-title">All Questions — Click to Jump</p>
+      <div class="q-list" id="admin-q-list">
+        <div class="text-muted" style="padding:1rem">Loading questions...</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Danger zone -->
+      <p class="section-title" style="color:var(--pink)">Danger Zone</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <button class="btn btn-danger btn-sm" onclick="adminResetGame()">🔄 RESET GAME (Clears All Scores)</button>
+      </div>
+      <p class="text-muted mt-2" style="font-size:0.75rem;line-height:1.6">
+        ⚠️ Score editing (bonus points for stage explanations) is done directly in your Google Sheet.<br>
+        The Total column formula updates automatically when you edit any score cell.
+      </p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ══════════════════════════════════════════════════════
+    //  CONFIGURATION — EDIT THESE BEFORE THE EVENT
+    // ══════════════════════════════════════════════════════
+    var API_URL = "https://script.google.com/macros/s/AKfycbzoiu0YOZMe_sxQeze7FrCSQO_Yg58YWZQQrYZVbNhl1EH1KWPFp60z7JEDq3SiuU3O/exec";
+    // Example: "https://script.google.com/macros/s/AKfycby.../exec"
+
+    // ── STATE ──────────────────────────────────────────────
+    var S = {
+      registered: false,
+      playerEmail: '',
+      playerName: '',
+      currentPage: 'register',
+      currentQ: 0,
+      totalQ: 0,
+      answered: false,
+      gameActive: false,
+      gameOver: false,
+      adminUnlocked: false,
+      adminPassword: '',
+      pollTimer: null,
+      lbTimer: null,
+      adminStatus: null,
+    };
+
+    // ══════════════════════════════════════════════════════
+    //  API HELPERS
+    // ══════════════════════════════════════════════════════
+    async function apiGet(params) {
+      var url = new URL(API_URL);
+      Object.keys(params).forEach(k => url.searchParams.set(k, params[k]));
+      var res = await fetch(url.toString());
+      return res.json();
+    }
+
+    async function apiPost(body) {
+      var res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      return res.json();
+    }
+
+    // ══════════════════════════════════════════════════════
+    //  NAVIGATION
+    // ══════════════════════════════════════════════════════
+    function goTo(page) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('page-' + page).classList.add('active');
+      var names = ['register', 'quiz', 'leaderboard', 'admin'];
+      var tabs = document.querySelectorAll('.nav-tab');
+      var idx = names.indexOf(page);
+      if (tabs[idx]) tabs[idx].classList.add('active');
+      S.currentPage = page;
+      if (page === 'quiz') { clearInterval(S.lbTimer); initQuiz(); }
+      if (page === 'leaderboard') { clearInterval(S.pollTimer); initLeaderboard(); }
+      if (page === 'admin' && S.adminUnlocked) adminRefreshStatus();
+    }
+
+    // ══════════════════════════════════════════════════════
+    //  STATUS POLLING (global — updates nav + quiz)
+    // ══════════════════════════════════════════════════════
+    async function pollStatus() {
+      try {
+        var data = await apiGet({ action: 'currentQuestion' });
+        if (!data.success) return;
+        var connDot = document.getElementById('conn-dot');
+        connDot.style.background = '#22C55E'; connDot.style.boxShadow = '0 0 8px #22C55E';
+
+        S.currentQ = data.currentQuestion;
+        S.totalQ = data.totalQuestions;
+        S.gameActive = data.gameActive;
+        S.gameOver = data.gameOver;
+
+        document.getElementById('nav-q-label').textContent = data.gameOver ? 'GAME OVER' : ('Q' + S.currentQ + ' LIVE');
+
+        if (S.currentPage === 'quiz') updateQuizUI(data);
+      } catch (e) {
+        var dot = document.getElementById('conn-dot');
+        dot.style.background = '#EF4444'; dot.style.boxShadow = '0 0 8px #EF4444';
+      }
+    }
+
+    // ══════════════════════════════════════════════════════
+    //  REGISTER
+    // ══════════════════════════════════════════════════════
+    async function handleRegister() {
+      var name = document.getElementById('reg-name').value.trim();
+      var email = document.getElementById('reg-email').value.trim();
+      var phone = document.getElementById('reg-phone').value.trim();
+      if (!name || !email || !phone) { showToast('⚠️ Fill in all fields'); return; }
+      if (!email.includes('@')) { showToast('⚠️ Invalid email'); return; }
+
+      var btn = document.getElementById('reg-btn');
+      btn.innerHTML = '<span class="spinner"></span> REGISTERING...';
+      btn.disabled = true;
+
+      try {
+        var data = await apiPost({ action: 'register', name, email, phone });
+        if (data.success) {
+          S.registered = true;
+          S.playerName = name;
+          S.playerEmail = email;
+          document.getElementById('reg-form-card').style.display = 'none';
+          document.getElementById('reg-success-card').style.display = 'block';
+          document.getElementById('welcome-name').textContent = 'WELCOME, ' + name.split(' ')[0].toUpperCase() + '!';
+          spawnConfetti();
+          showToast('✅ Registered! Good luck, ' + name.split(' ')[0] + '!');
+          localStorage.setItem('gs_email', email);
+          localStorage.setItem('gs_name', name);
+        } else {
+          showToast('❌ ' + (data.error || 'Registration failed'));
+          btn.innerHTML = '⚡ JOIN THE GAME'; btn.disabled = false;
+        }
+      } catch (e) {
+        showToast('❌ Network error — check API_URL in the code');
+        btn.innerHTML = '⚡ JOIN THE GAME'; btn.disabled = false;
+      }
+    }
+
+    // ══════════════════════════════════════════════════════
+    //  QUIZ
+    // ══════════════════════════════════════════════════════
+    function initQuiz() {
+      if (!S.registered) {
+        showEl('quiz-not-registered'); hideEl('quiz-active'); hideEl('quiz-waiting'); hideEl('quiz-done');
+        return;
+      }
+      pollStatus();
+      clearInterval(S.pollTimer);
+      S.pollTimer = setInterval(pollStatus, 4000);
+    }
+
+    function updateQuizUI(data) {
+      hideEl('quiz-not-registered');
+
+      if (data.gameOver) {
+        showEl('quiz-done'); hideEl('quiz-active'); hideEl('quiz-waiting');
+        return;
+      }
+      if (!data.gameActive) {
+        showEl('quiz-waiting'); hideEl('quiz-active'); hideEl('quiz-done');
+        return;
+      }
+
+      showEl('quiz-active'); hideEl('quiz-waiting'); hideEl('quiz-done');
+
+      document.getElementById('q-badge').textContent = 'QUESTION ' + data.currentQuestion + ' OF ' + data.totalQuestions;
+      document.getElementById('q-text').textContent = data.questionText;
+      document.getElementById('q-status-label').textContent = '🟢 LIVE';
+
+      // If question changed, reset answered state
+      if (S.currentQ !== data.currentQuestion) {
+        S.answered = false;
+      }
+
+      if (S.answered) {
+        hideEl('answer-area'); showEl('answer-submitted');
+      } else {
+        showEl('answer-area'); hideEl('answer-submitted');
+        document.getElementById('answer-input').value = '';
+      }
+    }
+
+    async function handleSubmitAnswer() {
+      var ans = document.getElementById('answer-input').value.trim();
+      if (!ans) { showToast('⚠️ Type your answer first!'); return; }
+
+      var btn = document.getElementById('submit-btn');
+      btn.innerHTML = '<span class="spinner"></span> SUBMITTING...';
+      btn.disabled = true;
+
+      try {
+        var data = await apiPost({ action: 'submitAnswer', email: S.playerEmail, answer: ans });
+
+        if (data.success) {
+          S.answered = true;
+          hideEl('answer-area'); showEl('answer-submitted');
+
+          if (data.alreadyAnswered) {
+            setEl('answer-emoji', '⚠️');
+            setEl('answer-result-title', 'ALREADY SUBMITTED');
+            setEl('answer-result-msg', 'You already answered this question.');
+            document.getElementById('answer-result-title').className = 'result-title waiting';
+          } else if (data.correct) {
+            setEl('answer-emoji', '✅');
+            setEl('answer-result-title', 'CORRECT! +1 PT');
+            setEl('answer-result-msg', 'Wait for the host to advance.');
+            document.getElementById('answer-result-title').className = 'result-title correct';
+            spawnConfetti(25);
+            showToast('🎉 Correct! +1 point');
+          } else {
+            setEl('answer-emoji', '❌');
+            setEl('answer-result-title', 'WRONG ANSWER');
+            setEl('answer-result-msg', 'Better luck next question!');
+            document.getElementById('answer-result-title').className = 'result-title wrong';
+            showToast('❌ Wrong answer. 0 points.');
+          }
+        } else {
+          showToast('❌ ' + (data.error || 'Submission failed'));
+          btn.innerHTML = '⚡ SUBMIT ANSWER'; btn.disabled = false;
+        }
+      } catch (e) {
+        showToast('❌ Network error');
+        btn.innerHTML = '⚡ SUBMIT ANSWER'; btn.disabled = false;
+      }
+    }
+
+    // ══════════════════════════════════════════════════════
+    //  LEADERBOARD
+    // ══════════════════════════════════════════════════════
+    function initLeaderboard() {
+      refreshLeaderboard();
+      clearInterval(S.lbTimer);
+      S.lbTimer = setInterval(refreshLeaderboard, 5000);
+    }
+
+    async function refreshLeaderboard() {
+      try {
+        var data = await apiGet({ action: 'leaderboard', limit: 10 });
+        if (data.success) renderLeaderboard(data.leaderboard);
+      } catch (e) {
+        document.getElementById('lb-list').innerHTML = '<div class="text-muted text-center" style="padding:3rem">⚠️ Could not load leaderboard</div>';
+      }
+    }
+
+    function renderLeaderboard(list) {
+      if (!list || !list.length) {
+        document.getElementById('lb-list').innerHTML = '<div class="text-muted text-center" style="padding:3rem">No participants yet</div>';
+        return;
+      }
+      var maxScore = list[0].score || 1;
+      var medals = ['🥇', '🥈', '🥉'];
+      var rankClasses = ['r1', 'r2', 'r3'];
+      var rowClasses = ['rank-1', 'rank-2', 'rank-3'];
+      var html = list.map(function (p, i) {
+        var rClass = i < 3 ? rowClasses[i] : '';
+        var numClass = i < 3 ? rankClasses[i] : 'rn';
+        var rankDisplay = i < 3 ? medals[i] : '#' + p.rank;
+        var barWidth = maxScore > 0 ? Math.round((p.score / maxScore) * 100) : 0;
+        return '<div class="lb-row ' + rClass + '" style="animation-delay:' + (i * 0.06) + 's">' +
+          '<div class="lb-rank ' + numClass + '">' + rankDisplay + '</div>' +
+          '<div class="lb-name">' + esc(p.name) + '<small>RANK #' + p.rank + '</small></div>' +
+          '<div class="lb-score">' + p.score + '<small>POINTS</small></div>' +
+          '<div class="lb-bar-bg"><div class="lb-bar" style="width:' + barWidth + '%"></div></div>' +
+          '</div>';
+      }).join('');
+      document.getElementById('lb-list').innerHTML = html;
+    }
+
+    // ══════════════════════════════════════════════════════
+    //  ADMIN
+    // ══════════════════════════════════════════════════════
+    async function checkAdminPass() {
+      var pass = document.getElementById('admin-pass').value;
+      if (!pass) { showToast('Enter password'); return; }
+
+      // Verify by calling nextQuestion with dummy — actually we call getStatus and trust the password
+      // Real verification happens server-side on every admin action
+      S.adminPassword = pass;
+      S.adminUnlocked = true;
+      document.getElementById('admin-gate').style.display = 'none';
+      document.getElementById('admin-panel').style.display = 'block';
+      await adminRefreshStatus();
+    }
+
+    function adminLogout() {
+      S.adminUnlocked = false; S.adminPassword = '';
+      document.getElementById('admin-gate').style.display = 'flex';
+      document.getElementById('admin-panel').style.display = 'none';
+      document.getElementById('admin-pass').value = '';
+    }
+
+    async function adminRefreshStatus() {
+      try {
+        var data = await apiGet({ action: 'status' });
+        if (!data.success) { showToast('❌ Could not load status'); return; }
+        S.adminStatus = data;
+        renderAdminPanel(data);
+      } catch (e) {
+        showToast('❌ Network error');
+      }
+    }
+
+    function renderAdminPanel(data) {
+      setEl('stat-participants', data.participants);
+      setEl('stat-current-q', data.currentQuestion);
+      setEl('stat-total-q', data.totalQuestions);
+
+      var status = data.gameOver ? '🏁 OVER' : data.gameActive ? '🟢 LIVE' : '⏸ PAUSED';
+      setEl('stat-game-status', status);
+
+      var q = data.questions && data.questions.find(function (q) { return q.id === data.currentQuestion; });
+      setEl('admin-q-num', data.currentQuestion);
+      setEl('admin-q-text', q ? q.text : (data.gameOver ? 'All questions complete!' : 'Game not started'));
+
+      // Disable prev/next appropriately
+      document.getElementById('btn-prev').disabled = data.currentQuestion <= 1;
+      document.getElementById('btn-next').disabled = data.gameOver;
+
+      // Question list
+      if (!data.questions) return;
+      var listHtml = data.questions.map(function (q) {
+        var isCurrent = q.id === data.currentQuestion;
+        var isClosed = q.id < data.currentQuestion;
+        var cls = isCurrent ? 'is-active' : isClosed ? 'is-closed' : '';
+        var statusCls = isCurrent ? 's-active' : isClosed ? 's-closed' : 's-upcoming';
+        var statusText = isCurrent ? 'ACTIVE ●' : isClosed ? 'CLOSED' : 'UPCOMING';
+        return '<div class="q-item ' + cls + '">' +
+          '<div class="q-item-num">' + q.id + '</div>' +
+          '<div class="q-item-text">' + esc(q.text) + '</div>' +
+          '<span class="q-item-status ' + statusCls + '">' + statusText + '</span>' +
+          (!isCurrent ? '<button class="q-item-jump" onclick="adminJumpTo(' + q.id + ')">JUMP HERE</button>' : '') +
+          '</div>';
+      }).join('');
+      document.getElementById('admin-q-list').innerHTML = listHtml;
+    }
+
+    async function adminNextQuestion() {
+      var btn = document.getElementById('btn-next');
+      btn.innerHTML = '<span class="spinner"></span> ...'; btn.disabled = true;
+      try {
+        var data = await apiPost({ action: 'nextQuestion', adminKey: S.adminPassword });
+        if (data.success) {
+          showToast(data.gameOver ? '🏁 Game over! All questions complete.' : '⏭ Advanced to Q' + data.currentQuestion);
+          S.currentQ = data.currentQuestion;
+          await adminRefreshStatus();
+        } else {
+          showToast('❌ ' + (data.error || 'Failed'));
+        }
+      } catch (e) { showToast('❌ Network error'); }
+      btn.innerHTML = '⏭ NEXT QUESTION'; btn.disabled = false;
+    }
+
+    async function adminPrevQuestion() {
+      try {
+        var data = await apiPost({ action: 'prevQuestion', adminKey: S.adminPassword });
+        if (data.success) {
+          showToast('◀ Went back to Q' + data.currentQuestion);
+          await adminRefreshStatus();
+        } else { showToast('❌ ' + (data.error || 'Failed')); }
+      } catch (e) { showToast('❌ Network error'); }
+    }
+
+    async function adminJumpTo(qNum) {
+      if (!confirm('Jump to Question ' + qNum + '? This will lock all previous questions.')) return;
+      try {
+        var data = await apiPost({ action: 'setQuestion', adminKey: S.adminPassword, question: qNum });
+        if (data.success) {
+          showToast('↗ Jumped to Q' + qNum);
+          await adminRefreshStatus();
+        } else { showToast('❌ ' + (data.error || 'Failed')); }
+      } catch (e) { showToast('❌ Network error'); }
+    }
+
+    async function adminStartGame() {
+      if (!confirm('Start the game at Question 1?')) return;
+      try {
+        var data = await apiPost({ action: 'setQuestion', adminKey: S.adminPassword, question: 1 });
+        // Also call nextQ which sets gameActive=true via setQuestion
+        var data2 = await apiPost({ action: 'setQuestion', adminKey: S.adminPassword, question: 1 });
+        showToast('▶ Game started!');
+        await adminRefreshStatus();
+      } catch (e) { showToast('❌ Network error'); }
+    }
+
+    async function adminResetGame() {
+      if (!confirm('⚠️ RESET GAME? This clears ALL scores. Cannot be undone!')) return;
+      if (!confirm('Are you really sure? All scores will be deleted.')) return;
+      try {
+        var data = await apiPost({ action: 'resetGame', adminKey: S.adminPassword });
+        if (data.success) { showToast('🔄 Game reset. All scores cleared.'); await adminRefreshStatus(); }
+        else { showToast('❌ ' + (data.error || 'Failed — check your admin password')); }
+      } catch (e) { showToast('❌ Network error'); }
+    }
+
+    // ══════════════════════════════════════════════════════
+    //  UTILS
+    // ══════════════════════════════════════════════════════
+    function showEl(id) { var e = document.getElementById(id); if (e) e.style.display = ''; }
+    function hideEl(id) { var e = document.getElementById(id); if (e) e.style.display = 'none'; }
+    function setEl(id, v) { var e = document.getElementById(id); if (e) e.textContent = v; }
+    function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+    function showToast(msg, ms) {
+      var t = document.getElementById('toast');
+      t.textContent = msg; t.classList.add('show');
+      setTimeout(function () { t.classList.remove('show'); }, ms || 3500);
+    }
+
+    function spawnConfetti(count) {
+      count = count || 60;
+      var colors = ['#FFD700', '#FF6B00', '#FF2D6B', '#00F5FF', '#22C55E', '#A855F7'];
+      for (var i = 0; i < count; i++) {
+        var el = document.createElement('div');
+        el.className = 'confetti-piece';
+        el.style.cssText = 'left:' + Math.random() * 100 + '%;background:' + colors[Math.floor(Math.random() * colors.length)] + ';width:' + (6 + Math.random() * 8) + 'px;height:' + (6 + Math.random() * 8) + 'px;border-radius:' + (Math.random() > 0.5 ? '50%' : '2px') + ';animation-duration:' + (1.5 + Math.random() * 2) + 's;animation-delay:' + (Math.random() * 0.5) + 's';
+        document.body.appendChild(el);
+        setTimeout(function () { el.remove(); }, 3500);
+      }
+    }
+
+    // ── RESTORE SESSION ──────────────────────────────────
+    window.addEventListener('DOMContentLoaded', function () {
+      var savedEmail = localStorage.getItem('gs_email');
+      var savedName = localStorage.getItem('gs_name');
+      if (savedEmail && savedName) {
+        S.registered = true; S.playerEmail = savedEmail; S.playerName = savedName;
+        document.getElementById('reg-form-card').style.display = 'none';
+        document.getElementById('reg-success-card').style.display = 'block';
+        document.getElementById('welcome-name').textContent = 'WELCOME BACK, ' + savedName.split(' ')[0].toUpperCase() + '!';
+      }
+      // Initial status ping
+      if (API_URL !== 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE') pollStatus();
+    });
+  </script>
+</body>
+
+</html>
