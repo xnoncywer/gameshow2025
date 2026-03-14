@@ -1320,21 +1320,22 @@
     // ══════════════════════════════════════════════════════
     //  API HELPERS
     // ══════════════════════════════════════════════════════
-    async function apiGet(params) {
-      var url = new URL(API_URL);
-      Object.keys(params).forEach(k => url.searchParams.set(k, params[k]));
-      var res = await fetch(url.toString());
-      return res.json();
-    }
+async function apiGet(params) {
+  var url = new URL(API_URL);
+  Object.keys(params).forEach(k => url.searchParams.set(k, params[k]));
+  var res = await fetch(url.toString(), { redirect: 'follow' });
+  return res.json();
+}
 
-    async function apiPost(body) {
-      var res = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-      return res.json();
-    }
+async function apiPost(body) {
+  var res = await fetch(API_URL, {
+    method: 'POST',
+    redirect: 'follow',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(body),
+  });
+  return res.json();
+}
 
     // ══════════════════════════════════════════════════════
     //  NAVIGATION
