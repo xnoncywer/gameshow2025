@@ -1355,7 +1355,7 @@
     // ═══════════════════════════════════════
 function initQuiz() {
 
-  // Restore registration from localStorage
+  // Restore registration if user already registered
   if (!S.registered) {
     var savedEmail = localStorage.getItem('gs_email');
     var savedName = localStorage.getItem('gs_name');
@@ -1367,6 +1367,7 @@ function initQuiz() {
     }
   }
 
+  // If still not registered
   if (!S.registered) {
     showEl('quiz-not-registered');
     hideEl('quiz-active');
@@ -1374,9 +1375,11 @@ function initQuiz() {
     hideEl('quiz-done');
     return;
   }
-      pollStatus();
-      S.pollTimer = setInterval(pollStatus, 4000);
-    }
+
+  // Start quiz polling
+  pollStatus();
+  S.pollTimer = setInterval(pollStatus, 4000);
+}
 
     function updateQuizUI(data) {
       hideEl('quiz-not-registered');
