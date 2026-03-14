@@ -1034,7 +1034,7 @@
     <div class="nav-logo">⚡ GameShow</div>
     <div class="nav-tabs">
       <button class="nav-tab active" onclick="goTo('register')">Register</button>
-      <button class="nav-tab" onclick="goTo('quiz')">Quiz</button>
+      <button class="nav-tab" onclick="S.registered ? goTo('quiz') : showToast('Register first!')">Quiz</button>
       <button class="nav-tab" onclick="goTo('leaderboard')">Board</button>
       <button class="nav-tab" onclick="goTo('admin')">Admin</button>
     </div>
@@ -1353,11 +1353,27 @@
     // ═══════════════════════════════════════
     // QUIZ
     // ═══════════════════════════════════════
-    function initQuiz() {
-      if (!S.registered) {
-        showEl('quiz-not-registered'); hideEl('quiz-active'); hideEl('quiz-waiting'); hideEl('quiz-done');
-        return;
-      }
+function initQuiz() {
+
+  // Restore registration from localStorage
+  if (!S.registered) {
+    var savedEmail = localStorage.getItem('gs_email');
+    var savedName = localStorage.getItem('gs_name');
+
+    if (savedEmail && savedName) {
+      S.registered = true;
+      S.playerEmail = savedEmail;
+      S.playerName = savedName;
+    }
+  }
+
+  if (!S.registered) {
+    showEl('quiz-not-registered');
+    hideEl('quiz-active');
+    hideEl('quiz-waiting');
+    hideEl('quiz-done');
+    return;
+  }
       pollStatus();
       S.pollTimer = setInterval(pollStatus, 4000);
     }
