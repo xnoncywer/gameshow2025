@@ -1554,15 +1554,16 @@ async function apiPost(body) {
 
       // Verify by calling nextQuestion with dummy — actually we call getStatus and trust the password
       // Real verification happens server-side on every admin action
-      S.adminPassword = pass;
-      S.adminUnlocked = true;
-      document.getElementById('admin-gate').style.display = 'none';
+       S.adminPassword = pass;
+       localStorage.setItem('gs_admin_pass', pass);
+       S.adminUnlocked = true;
+       document.getElementById('admin-gate').style.display = 'none';
       document.getElementById('admin-panel').style.display = 'block';
       await adminRefreshStatus();
     }
 
     function adminLogout() {
-      S.adminUnlocked = false; S.adminPassword = '';
+      S.adminUnlocked = false; S.adminPassword = ''; localStorage.removeItem('gs_admin_pass');
       document.getElementById('admin-gate').style.display = 'flex';
       document.getElementById('admin-panel').style.display = 'none';
       document.getElementById('admin-pass').value = '';
@@ -1698,8 +1699,10 @@ async function apiPost(body) {
     }
 
     // ── RESTORE SESSION ──────────────────────────────────
-    window.addEventListener('DOMContentLoaded', function () {
-      var savedEmail = localStorage.getItem('gs_email');
+window.addEventListener('DOMContentLoaded', function () {
+  var savedPass = localStorage.getItem('gs_admin_pass');
+  if (savedPass) { S.adminPassword = savedPass; S.adminUnlocked = true; }
+  var savedEmail = localStorage.getItem('gs_email');
       var savedName = localStorage.getItem('gs_name');
       if (savedEmail && savedName) {
         S.registered = true; S.playerEmail = savedEmail; S.playerName = savedName;
