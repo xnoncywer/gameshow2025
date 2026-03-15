@@ -1025,6 +1025,32 @@
         font-size: 0.58rem
       }
     }
+
+.mcq-option{
+  display:block;
+  width:100%;
+  margin-bottom:10px;
+  padding:12px;
+  border-radius:8px;
+  border:2px solid #444;
+  background:#111;
+  color:#fff;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.mcq-option:hover{
+  border-color:#00eaff;
+}
+
+.mcq-option.selected{
+  background:#00eaff;
+  color:#000;
+  border-color:#00eaff;
+  font-weight:bold;
+}
+
+
   </style>
 </head>
 
@@ -1034,7 +1060,7 @@
     <div class="nav-logo">⚡ GameShow</div>
     <div class="nav-tabs">
       <button class="nav-tab active" onclick="goTo('register')">Register</button>
-      <button class="nav-tab" onclick="S.registered ? goTo('quiz') : showToast('Register first!')">Quiz</button>
+     <button class="nav-tab" onclick="goTo('quiz')">Quiz</button>
       <button class="nav-tab" onclick="goTo('leaderboard')">Board</button>
       <button class="nav-tab" onclick="goTo('admin')">Admin</button>
     </div>
@@ -1428,7 +1454,8 @@ function updateQuizUI(data) {
   let html = "";
 
   data.options.forEach(function(opt){
-    html += `<button class="btn btn-outline btn-full mt-1" onclick="selectAnswer('${opt}')">${opt}</button>`;
+    html += `<button class="mcq-option" onclick="selectAnswer(this,'${opt}')">${opt}</button>`;
+
 
   });
 
@@ -1464,9 +1491,19 @@ else{
   }
 }
 
-      function selectAnswer(ans){
+function selectAnswer(btn, ans){
+
+  // remove previous selection
+  var options = document.querySelectorAll(".mcq-option");
+  options.forEach(o => o.classList.remove("selected"));
+
+  // highlight clicked option
+  btn.classList.add("selected");
+
+  // store answer
   document.getElementById("answer-input").value = ans;
 }
+
 
     async function handleSubmitAnswer() {
 
