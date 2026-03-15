@@ -1117,12 +1117,21 @@
             style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:2px;color:var(--muted);margin-bottom:0.8rem">
             CURRENT QUESTION</p>
           <div class="q-text" id="q-text">Loading...</div>
-          <div id="answer-area">
-            <label class="form-label">Your Answer</label>
-            <input class="answer-input" id="answer-input" type="text" placeholder="Type your answer here..."
-              autocomplete="off" onkeydown="if(event.key==='Enter')handleSubmitAnswer()">
-            <button class="btn btn-cyan btn-full" id="submit-btn" onclick="handleSubmitAnswer()">⚡ SUBMIT
-              ANSWER</button>
+<div id="answer-area">
+  <label class="form-label">Your Answer</label>
+
+  <div id="options-box" style="margin-bottom:15px;"></div>
+
+  <input class="answer-input" id="answer-input" type="text"
+  placeholder="Type your answer here..."
+  autocomplete="off"
+  onkeydown="if(event.key==='Enter')handleSubmitAnswer()">
+
+  <button class="btn btn-cyan btn-full"
+  id="submit-btn"
+  onclick="handleSubmitAnswer()">⚡ SUBMIT ANSWER</button>
+</div>
+
           </div>
           <div id="answer-submitted" style="display:none;text-align:center;padding:1.5rem 0">
             <div style="font-size:2.5rem;margin:1rem 0" id="answer-emoji">✅</div>
@@ -1414,6 +1423,28 @@ function updateQuizUI(data) {
       'QUESTION ' + data.currentQuestion + ' OF ' + data.totalQuestions;
 
     document.getElementById('q-text').textContent = data.questionText;
+     if(data.type === "mcq"){
+
+  let html = "";
+
+  data.options.forEach(function(opt){
+    html += `<button class="btn btn-outline btn-full mt-1" onclick="selectAnswer('${opt}')">${opt}</button>`;
+
+  });
+
+  document.getElementById("options-box").innerHTML = html;
+
+ document.getElementById("answer-input").style.display = "none";
+
+
+}
+else{
+
+  document.getElementById("answer-input").style.display = "";
+
+  document.getElementById("options-box").innerHTML = "";
+
+}
 
     document.getElementById('answer-input').value = '';
   }
@@ -1433,9 +1464,12 @@ function updateQuizUI(data) {
   }
 }
 
-
+      function selectAnswer(ans){
+  document.getElementById("answer-input").value = ans;
+}
 
     async function handleSubmitAnswer() {
+
       var ans = document.getElementById('answer-input').value.trim();
       if (!ans) { showToast('⚠️ Type your answer first!'); return; }
       var btn = document.getElementById('submit-btn');
