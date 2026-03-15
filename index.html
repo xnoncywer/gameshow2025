@@ -1276,7 +1276,7 @@
     // ═══════════════════════════════════════
     // CHANGE THIS TO YOUR APPS SCRIPT URL
     // ═══════════════════════════════════════
-    var API_URL = "https://script.google.com/macros/s/AKfycbzQErDBNqmakVaxtSP6EhvEagaR2K1jtZUDZyjLbvxcwGJKjwaKtXmRcSzVLO4u1-Gm/exec";
+    var API_URL = "https://script.google.com/macros/s/AKfycbwEn2MsfwTjl98iYi-sLPJTaZgcUHv1_oQuWWyZR7dwx5nIay0Aq_lErt2x4kry3xCa/exec";
 
     // ═══════════════════════════════════════
     // STATE
@@ -1736,25 +1736,36 @@ function selectAnswer(btn, ans){
     // ═══════════════════════════════════════
     // RESTORE SESSION ON PAGE LOAD
     // ═══════════════════════════════════════
-    window.addEventListener('DOMContentLoaded', function () {
-      // Restore admin session
-      var savedPass = localStorage.getItem('gs_admin_pass');
-      if (savedPass) { S.adminPassword = savedPass; S.adminUnlocked = true; }
+window.addEventListener('DOMContentLoaded', function () {
+  var savedPass = localStorage.getItem('gs_admin_pass');
+  if (savedPass) { S.adminPassword = savedPass; S.adminUnlocked = true; }
 
-      // Restore player session
-      var savedEmail = localStorage.getItem('gs_email');
-      var savedName = localStorage.getItem('gs_name');
-      if (savedEmail && savedName) {
+  var savedEmail = localStorage.getItem('gs_email');
+  var savedName = localStorage.getItem('gs_name');
+  if (savedEmail && savedName) {
+    // Verify email still exists in sheet before restoring session
+    apiPost({ action: 'verifyEmail', email: savedEmail }).then(function(data) {
+      if (data.exists) {
         S.registered = true; S.playerEmail = savedEmail; S.playerName = savedName;
         document.getElementById('reg-form-card').style.display = 'none';
         document.getElementById('reg-success-card').style.display = 'block';
         document.getElementById('welcome-name').textContent = 'WELCOME BACK, ' + savedName.split(' ')[0].toUpperCase() + '!';
+      } else {
+        // Email deleted from sheet — clear session, force re-register
+        localStorage.removeItem('gs_email');
+        localStorage.removeItem('gs_name');
+        S.registered = false; S.playerEmail = ''; S.playerName = '';
+        document.getElementById('reg-form-card').style.display = '';
+        document.getElementById('reg-success-card').style.display = 'none';
       }
-
-      // Start polling
-      pollStatus();
-     
+    }).catch(function() {
+      // Network error — still restore session optimistically
+      S.registered = true; S.playerEmail = savedEmail; S.playerName = savedName;
     });
+  }
+
+  pollStatus();
+});
   </script>
 </body>
 
