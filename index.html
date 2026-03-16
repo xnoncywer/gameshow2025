@@ -1417,6 +1417,16 @@ function initQuiz() {
 }
 
 function updateQuizUI(data) {
+
+  // 🔒 block quiz if user not registered
+  if (!S.registered) {
+    showEl('quiz-not-registered');
+    hideEl('quiz-active');
+    hideEl('quiz-waiting');
+    hideEl('quiz-done');
+    return;
+  }
+
   hideEl('quiz-not-registered');
 
   if (data.gameOver) { 
